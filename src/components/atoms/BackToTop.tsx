@@ -3,7 +3,7 @@ const BackToTop = () => {
         <div className="pb-10">
 
 
-            <h1 className='text-xl outline-text text-center'>Back To Top</h1>
+            <h1 className='text-xl outline-text text-center font-[800]'>Back To Top</h1>
 
             <p className="text-center text-sm text-gray"> ©️2023 - Richard William</p>
             <p className="text-center text-sm text-gray mt-2 mb-10">Made with ❣️ by Deepak Vishwakarma</p>

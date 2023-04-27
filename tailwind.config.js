@@ -33,6 +33,8 @@ module.exports = {
           fontWeight: '500',
         }],
 
+
+
         'xl': ['150px', {
           lineHeight: '200px',
           letterSpacing: '0.01em',
