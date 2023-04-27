@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+body {
+  background-color: black;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif !important;
+  color: white;
+}
+
+@layer {
+
+  ::selection {
+    color: #4b6cc1;
+    background: transparent;
+  }
+
+
+  .switch {
+    width: 50px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .switch[data-isOn="true"] {
+    justify-content: flex-end;
+  }
+
+  .handle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 40px;
+  }
+
+
+
+
+
+  .hidescollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hidescollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+
+
+
+  .outline-text {
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+  }
+
+}
