@@ -21,14 +21,11 @@ const Layout: React.FC<props> = ({ children }) => {
                 <main className="">{children}</main>
             </div>
 
-
             <aside className="border-l-[1px] border-[#ffffff29] p-[47px] flex flex-col">
 
                 <ThemeToggle />
 
                 <h5 className="text-right mt-auto">Available for Work</h5>
-
-
 
             </aside>
 

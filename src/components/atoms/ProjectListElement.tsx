@@ -14,7 +14,6 @@ const ProjectListElement: React.FC<props> = ({
     year,
     imageUrl
 }) => {
-
     const [visible, setVisible] = useState(false)
 
     const handleHoverStart = () => {
@@ -23,9 +22,6 @@ const ProjectListElement: React.FC<props> = ({
     const handleHoverEnd = () => {
         setVisible(false)
     }
-
-
-
 
     return (
         <motion.div
