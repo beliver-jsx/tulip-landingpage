@@ -4,7 +4,7 @@ import BackToTop from '@/components/atoms/BackToTop'
 import LargeTextWithImages from '@/components/atoms/LargeTextWithImages'
 export default function Home() {
   return (
-    <div>
+    <SmoothScroll>
 
       <h1 className='text-xl mt-[270px]'>Hello! I'm <br />
         Richard William, <br />
@@ -67,7 +67,7 @@ export default function Home() {
 
       <BackToTop />
 
-    </div>
+    </SmoothScroll>
 
 
 
