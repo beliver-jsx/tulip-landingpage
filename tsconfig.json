@@ -28,8 +28,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/pages/index.tsx",
-    "src/pages/test.tsx"
+    "src/pages/index.jsx",
+    "src/pages/test.tsx",
+    "src/components/Cursor.jsx"
   ],
   "exclude": [
     "node_modules"

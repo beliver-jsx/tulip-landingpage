@@ -2,6 +2,13 @@ import SmoothScroll from '@/components/SmoothScroller'
 import Divider from '@/components/atoms/Divider'
 import BackToTop from '@/components/atoms/BackToTop'
 import LargeTextWithImages from '@/components/atoms/LargeTextWithImages'
+
+
+
+
+import Parallax from '@/components/Parallax'
+
+
 export default function Home() {
     return (
         <div>

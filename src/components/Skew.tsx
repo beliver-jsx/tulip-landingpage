@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import useWindowSize from "@/hooks/useWindowSize";
+interface props {
+    children: any
+}
 
-function App() {
-    //Hook to grab window size
+const Skew: React.FC<props> = ({ children }) => {
     const size = useWindowSize() as any;
 
     // Ref for parent div and scrolling div
-    const app = useRef();
-    const scrollContainer = useRef<any>();
+    const scrollContainer = useRef<any>(null);
 
     // Configs
     const data = {
@@ -48,7 +49,7 @@ function App() {
             const difference = data.current - data.rounded;
             const acceleration = difference / size.width;
             const velocity = +acceleration;
-            const skew = velocity * 50;
+            const skew = velocity * 10;
 
             //Assign skew and smooth scrolling to the scroll container
             scrollContainer.current.style.transform = `skewY(${skew}deg)`;
@@ -58,19 +59,19 @@ function App() {
         }
     };
 
+
+
+
+
+
     return (
-        <div ref={app as any} className="App">
-            <div ref={scrollContainer} className="scroll p-5">
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
-                    <p className="py-[5rem] text-lg even:bg-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa aperiam esse, harum ipsum non temporibus laborum maxime aut! Odio eligendi ullam fugiat eos odit corporis distinctio debitis molestias consequuntur.</p>
-                ))}
-            </div>
+        <div ref={scrollContainer} className="scroll p-5">
+            {children}
         </div>
     );
 }
 
-export default App;
 
 
 
-
+export default Skew

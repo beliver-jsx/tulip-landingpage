@@ -1,5 +1,11 @@
 import React, { useRef, useState, useCallback, useLayoutEffect, useEffect } from "react";
 import ResizeObserver from "resize-observer-polyfill";
+
+import useMouse from "@react-hook/mouse-position";
+import Skew from "./Skew";
+
+
+
 import {
     useViewportScroll,
     useAnimationFrame,
@@ -10,6 +16,7 @@ import {
     useMotionValue
 } from "framer-motion";
 import { type } from "os";
+import { useAppSelector } from "@/store/hooks";
 
 
 
@@ -17,24 +24,27 @@ interface props {
     children: any
 }
 
+
+
+
+
+
+
 const SmoothScroll: React.FC<props> = ({ children }) => {
+
+
+
     // scroll container
     const scrollRef = useRef<HTMLDivElement>(null);
 
     // page scrollable height based on content length
     const [pageHeight, setPageHeight] = useState(0);
 
-
-
-
-
-
     // update scrollable height when browser is resizing
     const resizePageHeight = useCallback((entries: any) => {
         for (let entry of entries) {
             setPageHeight(entry.contentRect.height);
         }
-
     }, []);
 
     // observe when browser is resizing
@@ -47,54 +57,86 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
     }, [scrollRef, resizePageHeight]);
 
     const s = useScroll(); // measures how many pixels user has scrolled vertically
-
-
-    // as scrollY changes between 0px and the scrollable height, create a negative scroll value...
-    // ... based on current scroll position to translateY the document in a natural way
     const transform = useTransform(s.scrollY, [0, pageHeight], [0, -pageHeight]);
     const physics = { damping: 10, mass: 0.17, stiffness: 55 } // easing of smooth scroll
     const spring = useSpring(transform, physics); // apply easing to the negative scroll value
 
 
+    const cursor = useAppSelector(store => store.deafult.cursorState)
 
-    // const [direction, setDirection] = useState<'up' | 'down '>('up')
-    // const [isScrolling, setScrolling] = useState(false)
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+    const handleMouseMove = (event: any) => {
+        setMousePos({ x: event.clientX, y: event.clientY });
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
+
+    const varients = {
+        focused: {
+            width: '50px',
+            height: '50px',
+            top: mousePos.y,
+            left: mousePos.x,
+            background: '#4b6dc1c4',
+            transition: {
+                type: "ease",
+                mass: 0.17
+            }
+        },
+        def: {
+            width: '20px',
+            height: '20px',
+            top: mousePos.y,
+            left: mousePos.x,
+            background: '#4b6cc1',
+            transition: {
+                type: "ease",
+                mass: 0.17
+            }
+        }
+    }
+
+
+
 
 
 
     return (
-        <>
+        <div >
+            <motion.div
+
+                animate={cursor == 'default' ? varients.def : varients.focused}
+                className="circle z-40 fixed rounded-full "
+            >
+            </motion.div>
             <motion.div
                 ref={scrollRef}
                 style={{
                     y: spring,
-                    // skewY: direction === 'up' ? 5 : -5
-
-
-
-                }} // translateY of scroll container using negative scroll value
-                className="fixed px-[300px]"
-
-                onWheel={(event) => {
-                    // event.deltaY
-
-                    // const { deltaY } = event
-                    // const direName = deltaY < 1 ? 'up' : 'down'
-
-                    // setDirection(direName as any)
-
                 }}
 
-
-
+                className="fixed w-[1200px]  top-0 left-[300px] h-max"
             >
-                {children}
+
+                <Skew>
+
+                    {children}
+
+
+                </Skew>
+
+
             </motion.div >
-            {/* blank div that has a dynamic height based on the content's inherent height */}
-            {/* this is neccessary to allow the scroll container to scroll... */}
-            {/* ... using the browser's native scroll bar */}
             <div style={{ height: pageHeight }} />
-        </>
+        </div >
     );
 };
 

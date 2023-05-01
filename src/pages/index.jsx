@@ -1,17 +1,19 @@
-import SmoothScroll from '@/components/SmoothScroller'
 import Divider from '@/components/atoms/Divider'
 import BackToTop from '@/components/atoms/BackToTop'
+import SmoothScroll from '@/components/SmoothScroller'
 import LargeTextWithImages from '@/components/atoms/LargeTextWithImages'
 export default function Home() {
-  return (
-    <SmoothScroll>
 
+  return (
+    <div>
       <h1 className='text-xl mt-[270px]'>Hello! I'm <br />
         Richard William, <br />
         a Philippine - <br />
         based front - <br />
         end web <br />
         developer.</h1>
+
+
 
       <section className='mt-[300px]  w-[50%] ml-auto'>
 
@@ -66,11 +68,7 @@ export default function Home() {
       <Divider />
 
       <BackToTop />
-
-    </SmoothScroll>
-
-
-
+    </div>
   )
 }
 
@@ -82,11 +80,8 @@ export default function Home() {
 const Footer = () => {
   return (
     <div>
-
       <h1 className='text-xl'>Do you have a project idea in mind? Let me know,</h1>
-
       <h1 className='text-xl outline-text'>Email me!</h1>
-
       <div className='flex'>
         <p className='text-lg text-gray mr-10'>Twitter</p>
         <p className='text-lg text-gray'>Github</p>
