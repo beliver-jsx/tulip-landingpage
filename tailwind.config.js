@@ -35,7 +35,7 @@ module.exports = {
 
 
 
-        'xl': ['150px', {
+        'xl': ['140px', {
           lineHeight: '200px',
           letterSpacing: '0.01em',
           fontWeight: '700',

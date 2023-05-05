@@ -2,16 +2,39 @@ import Divider from '@/components/atoms/Divider'
 import BackToTop from '@/components/atoms/BackToTop'
 import SmoothScroll from '@/components/SmoothScroller'
 import LargeTextWithImages from '@/components/atoms/LargeTextWithImages'
+
+
+
+
+import TextRevealAnimation from '@/components/Animation/TextRevealAnimation'
+
+
+
+
 export default function Home() {
 
   return (
     <div>
-      <h1 className='text-xl mt-[270px]'>Hello! I'm <br />
+
+
+
+      <TextRevealAnimation lines={[
+        'Hello! Im',
+        'Richard William,',
+        'a Philippine - ',
+        'based front -',
+        'end web',
+        'developer.']} />
+
+
+
+
+      {/* <h1 className='text-xl mt-[270px]'>Hello! I'm <br />
         Richard William, <br />
         a Philippine - <br />
         based front - <br />
         end web <br />
-        developer.</h1>
+        developer.</h1> */}
 
 
 
