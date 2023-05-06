@@ -5,13 +5,43 @@ interface largeTextWithImages {
     second_image_url: string
 }
 
+import { motion, useAnimate } from 'framer-motion'
+
 import Parallax from "../Parallax"
 
 const LargeTextWithImages: React.FC<largeTextWithImages> = ({ heading, discription, first_image_url, second_image_url }) => {
+
+
+    const [scope, animate] = useAnimate()
+
+    const handleHoverIn = () => {
+        animate('h1', { color: 'white' })
+    }
+    const handleHoverOut = () => {
+        animate('h1', { color: 'black' })
+    }
+
     return (
-        <div className=' border-red-500'>
+        <div className=' border-red-500' ref={scope}
+
+
+
+
+            onMouseEnter={handleHoverIn}
+            onMouseLeave={handleHoverOut}
+
+
+
+
+
+
+        >
             <Parallax>
-                <h1 className='outline-text text-xl'>{heading}</h1>
+                <motion.h1
+                    whileHover={{
+                        textShadow: 'none',
+                    }}
+                    className=' text-xl outline-text   transition-colors '>{heading}</motion.h1>
             </Parallax>
             <p className='text-lg  text-gray'>{discription}</p>
             <div className='relative h-[800px] mt-[3rem]'>

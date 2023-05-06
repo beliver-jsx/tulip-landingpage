@@ -64,13 +64,10 @@ body {
 
 
   .outline-text {
-    color: rgb(0, 0, 0);
-    font-size: 40px;
-    -webkit-text-stroke: 1px rgb(255, 255, 255);
-    font: normal 200pt Arial;
     color: #000000;
-    text-shadow:
-      -1px -1px 0 #ffffff,
+    /* font-size: 30px; */
+    font: normal 200pt Arial;
+    text-shadow: -1px -1px 0 #ffffff,
       1px -1px 0 #ffffff,
       -1px 1px 0 #ffffff,
       1px 1px 0 #ffffff,
@@ -79,9 +76,8 @@ body {
       0px 1px 0 #ffffff,
       0px -1px 0 #ffffff;
     -webkit-font-smoothing: antialiased;
-
-
   }
+
 
 
 
