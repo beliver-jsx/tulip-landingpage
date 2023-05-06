@@ -28,8 +28,6 @@ interface props {
 
 const SmoothScroll: React.FC<props> = ({ children }) => {
 
-
-
     // scroll container
     const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -57,18 +55,19 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
     const physics = { damping: 12, mass: 0.17, stiffness: 30 } // easing of smooth scroll
     const spring = useSpring(transform, physics); // apply easing to the negative scroll value
 
-
+    // cursor state
     const cursor = useAppSelector(store => store.deafult.cursorState)
 
+    // cursor position
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (event: any) => {
         setMousePos({ x: event.clientX, y: event.clientY });
     };
 
+    // handle mouse position;
     useEffect(() => {
         document.addEventListener('mousemove', handleMouseMove);
-
         return () => {
             document.removeEventListener('mousemove', handleMouseMove);
         };
@@ -77,21 +76,23 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
 
     const varients = {
         focused: {
-            width: '50px',
-            height: '50px',
-            top: mousePos.y,
-            left: mousePos.x,
-            background: '#4b6dc1c4',
+            zIndex: -10,
+            width: '60px',
+            height: '60px',
+            top: mousePos.y + -30,
+            left: mousePos.x + -30,
+            background: '#4b6dc17e',
             transition: {
                 type: "ease",
                 mass: 0.17
             }
         },
         def: {
+            zIndex: -10,
             width: '20px',
             height: '20px',
-            top: mousePos.y,
-            left: mousePos.x,
+            top: mousePos.y + -10,
+            left: mousePos.x + -10,
             background: '#4b6cc1',
             transition: {
                 type: "ease",
@@ -108,7 +109,6 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
     return (
         <div >
             <motion.div
-
                 animate={cursor == 'default' ? varients.def : varients.focused}
                 className="circle z-40 fixed rounded-full "
             >
