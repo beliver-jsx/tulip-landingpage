@@ -52,17 +52,14 @@ const Skew: React.FC<props> = ({ children }) => {
             const skew = velocity * 10;
 
             //Assign skew and smooth scrolling to the scroll container
-            scrollContainer.current.style.transform = `skewY(${skew}deg)`;
+            if (scrollContainer.current) {
+                scrollContainer.current.style.transform = `skewY(${skew}deg)`;
+            }
 
             //loop vai raf
             requestAnimationFrame(() => skewScrolling());
         }
     };
-
-
-
-
-
 
     return (
         <div ref={scrollContainer} className="scroll p-5">

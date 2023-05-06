@@ -1,28 +1,18 @@
 import LgMenu from "./LgMenu"
-import { useState } from "react";
-import ThemeToggle from "./ThemeToggle"
-import { type cursorState } from "./types";
-import SmoothScroll from "./SmoothScroller";
-
-import { useAppDispatch } from "@/store/hooks";
-import { cursor } from "@/store/slices";
 import { motion } from 'framer-motion'
+import ThemeToggle from "./ThemeToggle"
+import { cursor } from "@/store/slices";
+import SmoothScroll from "./SmoothScroller";
+import { useAppDispatch } from "@/store/hooks";
 
 const Layout = ({ children }: any) => {
-    const [cursorState, setCursorState] = useState<cursorState>('default')
     const dispatch = useAppDispatch()
-
-
     const handleFocused = () => {
         dispatch(cursor('focused'))
     }
     const handleDefault = () => {
         dispatch(cursor('default'))
     }
-
-
-
-
     return (
         <div className='grid grid-cols-[300px_auto_300px]' >
             <aside className="border-r-[1px] border-[#ffffff29]">

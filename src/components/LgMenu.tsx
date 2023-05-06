@@ -1,10 +1,17 @@
 import { useRouter } from "next/router"
 import { LgMenuBtn } from "./atoms/buttons"
 
-const LgMenu = () => {
-    const { push } = useRouter()
+const listOfLinks = [
+    { name: 'home', href: '/' },
+    { name: 'about', href: '/about' },
+    { name: 'projects', href: '/projects' },
+    { name: 'contact', href: '/contact' },
+]
 
-    const click = {
+const LgMenu = () => {
+    const { push, pathname } = useRouter()
+
+    const click: any = {
         home: () => {
             push('/')
         },
@@ -21,10 +28,12 @@ const LgMenu = () => {
 
     return (
         <div className="mt-auto grid gap-y-3.5">
-            <LgMenuBtn click={click.home} text={'Home'} />
-            <LgMenuBtn click={click.about} text={'About'} />
-            <LgMenuBtn click={click.projects} text={'Projects'} />
-            <LgMenuBtn click={click.contact} text={'Contact'} />
+            {listOfLinks.map((Link) => <LgMenuBtn
+                click={click[Link.name]}
+                text={Link.name}
+                active={pathname === Link.href}
+
+            />)}
         </div>
     )
 }
