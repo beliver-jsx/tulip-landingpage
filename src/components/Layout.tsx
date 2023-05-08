@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { cursor } from "@/store/slices";
 import SmoothScroll from "./SmoothScroller";
 import { useAppDispatch } from "@/store/hooks";
+import Link from "next/link";
 const DynamicToggler = dynamic(() => import('./ThemeToggle'),
     { ssr: false })
 
@@ -32,20 +33,18 @@ const Layout = ({ children }: any) => {
 export default Layout
 
 
-
-
-
 // Components
 
 const DesktopControls = ({ handleDefault, handleFocused }: any) => (
     <div className="w-full h-full fixed top-0 left-0 p-[50px] grid grid-cols-2">
         <div>
-            <motion.h5
-                onHoverEnd={handleDefault}
-                className=" cursor-pointer text-md"
-                onHoverStart={handleFocused}
-                whileHover={{ letterSpacing: '1px', color: '#4b6cc1' }}
-            >Richard William's <br /> Portfolio</motion.h5>
+            <Link href={'/'}>
+                <motion.h5
+                    onHoverEnd={handleDefault}
+                    className=" cursor-pointer text-md"
+                    onHoverStart={handleFocused}
+                    whileHover={{ letterSpacing: '1px', color: '#4b6cc1' }}
+                >Richard William's <br /> Portfolio</motion.h5></Link>
         </div>
 
         <div>
@@ -56,7 +55,13 @@ const DesktopControls = ({ handleDefault, handleFocused }: any) => (
             <LgMenu />
         </div>
         <div className="flex items-end justify-end  w-full h-full">
-            <h5 className="text-right mt-auto">Available for Work</h5>
+            <Link href={'/'}>
+                <motion.h5
+                    onHoverEnd={handleDefault}
+                    className=" cursor-pointer text-md"
+                    onHoverStart={handleFocused}
+                    whileHover={{ letterSpacing: '3px', color: '#4b6cc1', fontWeight: "bold" }}
+                >Available for work!</motion.h5></Link>
         </div>
     </div >
 )

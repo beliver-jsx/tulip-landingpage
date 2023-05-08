@@ -42,10 +42,10 @@ module.exports = {
           fontWeight: '600',
         }],
 
-        'xl': ['140px', {
+        'xl': ['9rem', {
           lineHeight: '200px',
           letterSpacing: '0.01em',
-          fontWeight: '700',
+          fontWeight: '800',
         }]
       },
 

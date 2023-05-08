@@ -1,18 +1,41 @@
+const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30
+};
 import { motion } from 'framer-motion'
-import { useState, useEffect } from "react";
 import { useTheme } from 'next-themes'
-const ThemeToggle = () => {
+import { cursor } from '@/store/slices'
+import { useAppDispatch } from '@/store/hooks'
 
+
+const ThemeToggle = () => {
     const { theme, setTheme } = useTheme()
+    const dispatch = useAppDispatch()
+    const handleFocused = () => {
+        dispatch(cursor('focused'))
+    }
+    const handleDefault = () => {
+        dispatch(cursor('default'))
+    }
 
     const toggleSwitch = () => {
         setTheme(theme == 'light' ? 'dark' : 'light')
     };
 
     return (
-        <div className='flex justify-end'>
-            <div className="switch" data-isOn={theme === 'dark'} onClick={toggleSwitch}>
-                <motion.div className="handle bg-black dark:bg-white" layout transition={spring} />
+        <div
+            onMouseEnter={handleFocused}
+            onMouseLeave={handleDefault}
+            className='flex justify-end'>
+
+            <div className="switch"
+                onClick={toggleSwitch}
+                data-isOn={theme === 'dark'}>
+                <motion.div
+                    layout
+                    transition={spring}
+                    className="handle bg-black dark:bg-white" />
             </div>
 
         </div>
@@ -20,8 +43,3 @@ const ThemeToggle = () => {
 }
 export default ThemeToggle
 
-const spring = {
-    type: "spring",
-    stiffness: 700,
-    damping: 30
-};
