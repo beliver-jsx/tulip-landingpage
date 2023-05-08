@@ -38,7 +38,7 @@ const Parallax = ({
         [initial, final],
         [clampInitial ? 0 : offset, clampFinal ? 0 : -offset]
     );
-    const y = useSpring(yRange, { stiffness: 400, damping: 90 });
+    const y = useSpring(yRange, { stiffness: 500, damping: 150 });
 
     useLayoutEffect(() => {
         const element = ref.current;

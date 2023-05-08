@@ -60,9 +60,8 @@ const Skew: React.FC<props> = ({ children }) => {
             requestAnimationFrame(() => skewScrolling());
         }
     };
-
     return (
-        <div ref={scrollContainer} className="scroll p-5">
+        <div ref={scrollContainer} className="scroll">
             {children}
         </div>
     );

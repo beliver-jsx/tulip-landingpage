@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -9,6 +10,7 @@ module.exports = {
     extend: {
 
       colors: {
+
         blue: '#4b6cc1',
         gray: 'gray'
       },
@@ -22,7 +24,7 @@ module.exports = {
         }],
 
         'md': ['16px', {
-          lineHeight: '2rem',
+          lineHeight: '1.4rem',
           letterSpacing: '-0.01em',
           fontWeight: '500',
         }],
@@ -34,6 +36,11 @@ module.exports = {
         }],
 
 
+        'elg': ['80px', {
+          lineHeight: '6rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '600',
+        }],
 
         'xl': ['140px', {
           lineHeight: '200px',
@@ -41,7 +48,6 @@ module.exports = {
           fontWeight: '700',
         }]
       },
-
 
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -3,7 +3,7 @@ import Divider from '@/components/atoms/Divider'
 import BackToTop from '@/components/atoms/BackToTop'
 import LargeTextWithImages from '@/components/atoms/LargeTextWithImages'
 
-
+import TextRevealAnimation from '@/components/Animation/TextRevealAnimation'
 
 
 import Parallax from '@/components/Parallax'
@@ -13,13 +13,16 @@ export default function Home() {
     return (
         <div>
 
-            <h1 className='text-xl mt-[270px]'>Welcome, you
-                beautiful
-                hooman! Here's
-                my story...
-                I was introduc</h1>
+            <Parallax offset={100} >
+                <TextRevealAnimation classNames='mt-[10rem]' lines={[
+                    'Welcome, you',
+                    'beautiful',
+                    'hooman! Here s',
+                    'my story...'
+                ]} />
+            </Parallax>
 
-            <section className='mt-[300px] w-[50%] ml-auto'>
+            <section className='mt-[100px] w-[50%] ml-auto'>
 
                 <p className='text-lg'>
 
@@ -46,28 +49,24 @@ export default function Home() {
             <Divider />
 
 
-
-
-
-
-
             <section className='grid grid-cols-[2fr_2fr]'>
                 <div>
                     <h3 className="text-[60px]">Skills</h3>
                 </div>
 
-                <div>
-                    <p className='text-lg'>HTML</p>
-                    <p className='text-lg'>CSS</p>
-                    <p className='text-lg'>Javascript</p>
-                    <p className='text-lg'>Tailwind CSS</p>
-                    <p className='text-lg'>GSAP</p>
-                    <p className='text-lg'>Git</p>
-                    <p className='text-lg'>React Js</p>
-                    <p className='text-lg'>Redux</p>
-                    <p className='text-lg'>Framer Motion</p>
-
-                </div>
+                <Parallax>
+                    <div>
+                        <p className='text-lg'>HTML</p>
+                        <p className='text-lg'>CSS</p>
+                        <p className='text-lg'>Javascript</p>
+                        <p className='text-lg'>Tailwind CSS</p>
+                        <p className='text-lg'>GSAP</p>
+                        <p className='text-lg'>Git</p>
+                        <p className='text-lg'>React Js</p>
+                        <p className='text-lg'>Redux</p>
+                        <p className='text-lg'>Framer Motion</p>
+                    </div>
+                </Parallax>
 
             </section>
 

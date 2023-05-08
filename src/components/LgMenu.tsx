@@ -27,12 +27,11 @@ const LgMenu = () => {
     }
 
     return (
-        <div className="mt-auto grid gap-y-3.5">
+        <div className=" grid gap-y-3.5 ">
             {listOfLinks.map((Link) => <LgMenuBtn
                 click={click[Link.name]}
                 text={Link.name}
                 active={pathname === Link.href}
-
             />)}
         </div>
     )

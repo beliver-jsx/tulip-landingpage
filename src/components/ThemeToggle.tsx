@@ -1,17 +1,18 @@
 import { motion } from 'framer-motion'
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { useTheme } from 'next-themes'
 const ThemeToggle = () => {
-    const [isOn, setIsOn] = useState(false);
 
-    const toggleSwitch = () => setIsOn(!isOn);
+    const { theme, setTheme } = useTheme()
+
+    const toggleSwitch = () => {
+        setTheme(theme == 'light' ? 'dark' : 'light')
+    };
+
     return (
         <div className='flex justify-end'>
-
-
-
-            <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
-                <motion.div className="handle" layout transition={spring} />
+            <div className="switch" data-isOn={theme === 'dark'} onClick={toggleSwitch}>
+                <motion.div className="handle bg-black dark:bg-white" layout transition={spring} />
             </div>
 
         </div>

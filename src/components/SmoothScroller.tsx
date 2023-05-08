@@ -7,7 +7,6 @@ import Skew from "./Skew";
 
 
 import {
-    useViewportScroll,
     useAnimationFrame,
     useScroll,
     useTransform,
@@ -52,7 +51,17 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
 
     const s = useScroll(); // measures how many pixels user has scrolled vertically
     const transform = useTransform(s.scrollY, [0, pageHeight], [0, -pageHeight]);
-    const physics = { damping: 12, mass: 0.17, stiffness: 30 } // easing of smooth scroll
+    // const physics = { damping: 7, mass: 0.17, stiffness: 20 } // easing of smooth scroll
+
+
+    const physics = {
+        damping: 20,
+        stiffness: 70,
+        mass: 0.10,
+    }
+
+
+
     const spring = useSpring(transform, physics); // apply easing to the negative scroll value
 
     // cursor state
@@ -107,29 +116,26 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
 
 
     return (
-        <div >
+        <div>
             <motion.div
                 animate={cursor == 'default' ? varients.def : varients.focused}
-                className="circle z-40 fixed rounded-full "
-            >
+                className="circle z-40 fixed rounded-full">
             </motion.div>
+
+
+
             <motion.div
                 ref={scrollRef}
                 style={{
                     y: spring,
                 }}
 
-                className="fixed w-[1200px]  top-0 left-[300px] h-max"
+                className="fixed w-[calc(100%-600px)]  top-0 left-[300px] h-max"
             >
 
                 <Skew>
-
                     {children}
-
-
                 </Skew>
-
-
             </motion.div >
             <div style={{ height: pageHeight }} />
         </div >
@@ -137,3 +143,4 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
 };
 
 export default SmoothScroll;
+

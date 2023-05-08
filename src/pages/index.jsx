@@ -16,27 +16,13 @@ export default function Home() {
   return (
     <div>
 
-
-
-      <TextRevealAnimation lines={[
+      <TextRevealAnimation classNames='mt-[10rem]' lines={[
         'Hello! Im',
         'Richard William,',
         'a Philippine - ',
         'based front -',
         'end web',
         'developer.']} />
-
-
-
-
-      {/* <h1 className='text-xl mt-[270px]'>Hello! I'm <br />
-        Richard William, <br />
-        a Philippine - <br />
-        based front - <br />
-        end web <br />
-        developer.</h1> */}
-
-
 
       <section className='mt-[300px]  w-[50%] ml-auto'>
 

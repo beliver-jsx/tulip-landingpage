@@ -1,9 +1,11 @@
 import LgMenu from "./LgMenu"
+import dynamic from "next/dynamic";
 import { motion } from 'framer-motion'
-import ThemeToggle from "./ThemeToggle"
 import { cursor } from "@/store/slices";
 import SmoothScroll from "./SmoothScroller";
 import { useAppDispatch } from "@/store/hooks";
+const DynamicToggler = dynamic(() => import('./ThemeToggle'),
+    { ssr: false })
 
 const Layout = ({ children }: any) => {
     const dispatch = useAppDispatch()
@@ -13,26 +15,56 @@ const Layout = ({ children }: any) => {
     const handleDefault = () => {
         dispatch(cursor('default'))
     }
+
     return (
-        <div className='grid grid-cols-[300px_auto_300px]' >
-            <aside className="border-r-[1px] border-[#ffffff29]">
-                <div className="w-[300px] h-[100%] fixed top-0 left-0 flex flex-col p-[47px]">
-                    <motion.h5 onHoverStart={handleFocused} onHoverEnd={handleDefault} whileHover={{ letterSpacing: '1px', color: '#4b6cc1' }} className=" cursor-pointer" >Richard William's <br /> Portfolio</motion.h5>
-                    <LgMenu />
-                </div>
-            </aside>
-            <div>
-                <SmoothScroll>
-                    <div>{children}</div>
-                </SmoothScroll>
-            </div>
-            <aside className="border-l-[1px] border-[#ffffff29]">
-                <div className="w-[300px] h-[100%] fixed top-0 right-0 flex flex-col p-[47px]">
-                    <ThemeToggle />
-                    <h5 className="text-right mt-auto">Available for Work</h5>
-                </div>
-            </aside>
+        <div className="w-full h-full fixed top-0 left-0">
+            <HorizontalLine />
+            <DesktopControls {...{
+                handleDefault,
+                handleFocused
+            }} />
+            <SmoothScroll>
+                <div>{children}</div>
+            </SmoothScroll>
         </div>
     )
 }
 export default Layout
+
+
+
+
+
+// Components
+
+const DesktopControls = ({ handleDefault, handleFocused }: any) => (
+    <div className="w-full h-full fixed top-0 left-0 p-[50px] grid grid-cols-2">
+        <div>
+            <motion.h5
+                onHoverEnd={handleDefault}
+                className=" cursor-pointer text-md"
+                onHoverStart={handleFocused}
+                whileHover={{ letterSpacing: '1px', color: '#4b6cc1' }}
+            >Richard William's <br /> Portfolio</motion.h5>
+        </div>
+
+        <div>
+            <DynamicToggler />
+        </div>
+
+        <div className="flex items-end  w-full h-full">
+            <LgMenu />
+        </div>
+        <div className="flex items-end justify-end  w-full h-full">
+            <h5 className="text-right mt-auto">Available for Work</h5>
+        </div>
+    </div >
+)
+
+const HorizontalLine = () => (
+    <div className="grid grid-cols-3 w-full h-screen top-0 px-[300px] fixed ">
+        <div className="border-l border-[#ececec] dark:border-[#ececec1b]">&nbsp;</div>
+        <div className="border-l border-[#ececec] dark:border-[#ececec1b]">&nbsp;</div>
+        <div className="border border-y-0 border-[#ececec] dark:border-[#ececec1b]">&nbsp;</div>
+    </div>
+)
