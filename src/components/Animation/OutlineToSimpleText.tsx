@@ -19,8 +19,8 @@ const OutlineToSimpleText: React.FC<props> = ({ text, classNames }) => {
             className='flex relative'
             onHoverStart={handleHoverIn}
             onHoverEnd={handleHoverOut}>
-            <motion.h3 className={`  ${classNames ? classNames : null}}`} animate={simpleTextControl}>{text}</motion.h3>
-            <motion.h3 className={` absolute outline-text ${classNames ? classNames : null}}`} animate={OutlineTextControl}>{text}</motion.h3>
+            <motion.h3 className={`  ${classNames ? classNames : 'text-xl'}}`} animate={simpleTextControl}>Email me!</motion.h3>
+            <motion.h3 className={` absolute outline-text ${classNames ? classNames : 'text-xl'}}`} animate={OutlineTextControl}>Email me!</motion.h3>
         </motion.div>
     )
 }

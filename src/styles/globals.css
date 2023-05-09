@@ -5,6 +5,14 @@
 @tailwind utilities;
 
 
+
+:root {
+  --primary-col: white;
+  --secondary-col: black;
+
+}
+
+
 body {
   color: #000;
   background: #fff;
@@ -17,6 +25,13 @@ body {
   color: #fff;
   background: #000;
   font-family: 'Manrope', sans-serif !important;
+}
+
+.dark,
+.dark :root {
+  --primary-col: black;
+  --secondary-col: white;
+
 }
 
 @layer {
@@ -48,16 +63,12 @@ body {
     border-radius: 40px;
   }
 
-
-
-
-
-  .hidescollbar::-webkit-scrollbar {
+  html::-webkit-scrollbar {
     display: none;
   }
 
   /* Hide scrollbar for IE, Edge and Firefox */
-  .hidescollbar {
+  html {
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
@@ -65,24 +76,18 @@ body {
   }
 
 
-
-
   .outline-text {
-    color: #000000;
-    /* font-size: 30px; */
-    /* font: normal 200pt Arial; */
-    text-shadow: -1px -1px 0 #ffffff,
-      1px -1px 0 #ffffff,
-      -1px 1px 0 #ffffff,
-      1px 1px 0 #ffffff,
-      1px 0px 0 #ffffff,
-      -1px 0px 0 #fffefe,
-      0px 1px 0 #ffffff,
-      0px -1px 0 #ffffff;
+    color: var(--primary-col);
+    text-shadow: -1px -1px 0 var(--secondary-col),
+      1px -1px 0 var(--secondary-col),
+      -1px 1px 0 var(--secondary-col),
+      1px 1px 0 var(--secondary-col),
+      1px 0px 0 var(--secondary-col),
+      -1px 0px 0 var(--secondary-col),
+      0px 1px 0 var(--secondary-col),
+      0px -1px 0 var(--secondary-col);
     -webkit-font-smoothing: antialiased;
   }
-
-
 
 
 }

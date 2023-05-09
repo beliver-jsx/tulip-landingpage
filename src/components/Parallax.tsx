@@ -7,6 +7,7 @@ import {
     useReducedMotion,
     useScroll,
 } from "framer-motion";
+import useMobileDetect from "@/hooks/useMobileDetect";
 
 type ParallaxProps = {
     children: ReactNode;
@@ -23,12 +24,12 @@ const Parallax = ({
     clampFinal,
     className
 }: ParallaxProps): JSX.Element => {
-    const prefersReducedMotion = useReducedMotion();
+
+    const ref = useRef(null);
+    const { scrollY } = useScroll();
+    const isMobileSize = useMobileDetect()
     const [elementTop, setElementTop] = useState(0);
     const [clientHeight, setClientHeight] = useState(0);
-    const ref = useRef(null);
-
-    const { scrollY } = useScroll();
 
     const initial = elementTop - clientHeight;
     const final = elementTop + offset;
@@ -56,7 +57,7 @@ const Parallax = ({
     }, [ref]);
 
     // Don't parallax if the user has "reduced motion" enabled
-    if (prefersReducedMotion) {
+    if (isMobileSize) {
         return <>{children}</>;
     }
 

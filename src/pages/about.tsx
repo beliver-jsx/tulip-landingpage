@@ -1,7 +1,6 @@
-import SmoothScroll from '@/components/SmoothScroller'
 import Divider from '@/components/atoms/Divider'
 import BackToTop from '@/components/atoms/BackToTop'
-import LargeTextWithImages from '@/components/atoms/LargeTextWithImages'
+import TrackingText from '@/components/Animation/TextTracking'
 
 import TextRevealAnimation from '@/components/Animation/TextRevealAnimation'
 
@@ -22,7 +21,7 @@ export default function Home() {
                 ]} />
             </Parallax>
 
-            <section className='mt-[100px] w-[50%] ml-auto'>
+            <section className='lg:mt-[200px] mt-[5rem]  lg:w-[50%] ml-auto mb-[5rem]'>
 
                 <p className='text-lg'>
 
@@ -41,6 +40,10 @@ export default function Home() {
                     <br />
                     <br />
                     <br />
+                    <div className='flex gap-10'>
+                        <TrackingText text="Twitter" className='text-lg text-gray' />
+                        <TrackingText text="Github" className='text-lg text-gray' />
+                    </div>
 
                 </p>
 
@@ -49,12 +52,12 @@ export default function Home() {
             <Divider />
 
 
-            <section className='grid grid-cols-[2fr_2fr]'>
+            <section className='grid lg:grid-cols-[2fr_2fr] mt-[15rem] gap-5'>
                 <div>
-                    <h3 className="text-[60px]">Skills</h3>
+                    <h3 className="text-[70px] font-[800]">Skills</h3>
                 </div>
 
-                <Parallax>
+                <Parallax offset={100}>
                     <div>
                         <p className='text-lg'>HTML</p>
                         <p className='text-lg'>CSS</p>
@@ -70,25 +73,20 @@ export default function Home() {
 
             </section>
 
-            <section className='grid grid-cols-[2fr_2fr] mt-[10rem]'>
+            <section className='grid lg:grid-cols-[2fr_2fr] mt-[10rem] gap-5'>
                 <div>
-                    <h3 className="text-[60px]">Credits</h3>
+                    <h3 className="text-[70px] font-[800]">Credits</h3>
                 </div>
 
                 <div>
                     <p className='text-lg mb-10'>This website is developed using React JS with Next JS. Inspirations of this website are Ronnie Feng and Hugo Bazin.</p>
-
-                    <p className='text-lg mb-10'>Font used is Manrope.</p>
-
-                    <p className='text-lg mb-10'>Animations are powered by Framer Motion.</p>
+                    <p className='text-lg mb-10'>Font used is <TrackingText text='Manrope' className='inline !text-gray' /> </p>
+                    <p className='text-lg mb-10'>Animations are powered by <TrackingText text='Framer Motion' className='inline !text-gray' />
+                    </p>
 
                 </div>
 
             </section>
-
-
-
-
 
             <Divider />
 
@@ -103,22 +101,3 @@ export default function Home() {
 
 
 
-
-
-
-const Footer = () => {
-    return (
-        <div>
-
-            <h1 className='text-xl'>Do you have a project idea in mind? Let me know,</h1>
-
-            <h1 className='text-xl outline-text'>Email me!</h1>
-
-            <div className='flex'>
-                <p className='text-lg text-gray mr-10'>Twitter</p>
-                <p className='text-lg text-gray'>Github</p>
-
-            </div>
-        </div>
-    )
-}

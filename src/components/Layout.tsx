@@ -18,7 +18,7 @@ const Layout = ({ children }: any) => {
     }
 
     return (
-        <div className="w-full h-full fixed top-0 left-0">
+        <div className="w-full h-full fixed top-0 left-0 ">
             <HorizontalLine />
             <DesktopControls {...{
                 handleDefault,
@@ -36,7 +36,13 @@ export default Layout
 // Components
 
 const DesktopControls = ({ handleDefault, handleFocused }: any) => (
-    <div className="w-full h-full fixed top-0 left-0 p-[50px] grid grid-cols-2">
+    <div className="w-full h-full fixed top-0 left-0 
+    p-[24px]
+   4xl:p-[50px]
+   3xl:p-[50px]
+   2xl:p-[50px]
+   xl:p-[25px]
+    grid grid-cols-2">
         <div>
             <Link href={'/'}>
                 <motion.h5
@@ -58,16 +64,26 @@ const DesktopControls = ({ handleDefault, handleFocused }: any) => (
             <Link href={'/'}>
                 <motion.h5
                     onHoverEnd={handleDefault}
-                    className=" cursor-pointer text-md"
+                    className=" cursor-pointer text-md hidden lg:block"
                     onHoverStart={handleFocused}
                     whileHover={{ letterSpacing: '3px', color: '#4b6cc1', fontWeight: "bold" }}
                 >Available for work!</motion.h5></Link>
         </div>
-    </div >
+    </div>
 )
 
 const HorizontalLine = () => (
-    <div className="grid grid-cols-3 w-full h-screen top-0 px-[300px] fixed ">
+    <div className="grid grid-cols-[1fr_1fr_1fr] w-full h-screen top-0 bg-red-500--
+    
+
+    4xl:px-[300px]
+    3xl:px-[250px]
+    2xl:px-[200px]
+    xl:px-[176px]
+    lg:px-[48px]
+    md:px-[48px]
+    sm:px-[48px]
+    fixed ">
         <div className="border-l border-[#ececec] dark:border-[#ececec1b]">&nbsp;</div>
         <div className="border-l border-[#ececec] dark:border-[#ececec1b]">&nbsp;</div>
         <div className="border border-y-0 border-[#ececec] dark:border-[#ececec1b]">&nbsp;</div>

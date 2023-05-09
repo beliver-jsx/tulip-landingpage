@@ -4,44 +4,51 @@ interface largeTextWithImages {
     first_image_url: string,
     second_image_url: string
 }
-
 import Parallax from "../Parallax"
-import { motion, useAnimate } from 'framer-motion'
+import { cursor } from "@/store/slices"
+import { useAppDispatch } from "@/store/hooks"
+import { motion, useAnimationControls } from 'framer-motion'
 
 const LargeTextWithImages: React.FC<largeTextWithImages> = ({
     heading,
     discription,
     first_image_url,
     second_image_url }) => {
+    const dispatch = useAppDispatch()
 
-    const [scope, animate] = useAnimate()
-    const handleHoverIn = () => {
-        animate('h1', { color: 'white' })
+    const simpleTextControl = useAnimationControls()
+    const OutlineTextControl = useAnimationControls()
+
+    const handleInnerMouseEnter = () => {
+        dispatch(cursor('focused'))
+        OutlineTextControl.start({ opacity: 0 }, { duration: .4 })
     }
-    const handleHoverOut = () => {
-        animate('h1', { color: 'black' })
+    const handleInnerMouseLeave = () => {
+        dispatch(cursor('default'))
+        OutlineTextControl.start({ opacity: 1 }, { duration: .4 })
     }
 
     return (
-        <div className=' border-red-500' ref={scope}
-            onMouseEnter={handleHoverIn}
-            onMouseLeave={handleHoverOut}
-        >
-            <Parallax>
-                <motion.h1
-                    whileHover={{
-                        textShadow: 'none',
-                    }}
-                    className=' text-xl outline-text   transition-colors '>{heading}</motion.h1>
+        <div
+            onMouseEnter={handleInnerMouseEnter}
+            onMouseLeave={handleInnerMouseLeave}
+            className='py-[5rem] border-y-2 border-gray'>
+            <Parallax className="mt-[5rem] mb-[1rem]" offset={50}>
+                <motion.div
+                    className='flex relative'>
+                    <motion.h3
+                        className='tracking-wider 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]'
+                        animate={simpleTextControl}>{heading}</motion.h3>
+                    <motion.h3
+                        className={`absolute outline-text tracking-wider 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]`}
+                        animate={OutlineTextControl}>{heading}</motion.h3>
+                </motion.div>
             </Parallax>
-            <p className='text-lg  text-gray'>{discription}</p>
-            <div className='relative h-[800px] mt-[3rem]'>
-
-                <div style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1682343160245-354923696ce6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60")' }} className='w-[60%] bg-red-500 h-[500px] absolute top-0 right-0 bg-no-repeat bg-cover bg-center'></div>
-                <Parallax offset={200} className="absolute w-[60%]  h-[500px]  left-0 bottom-[0px]  ">
-                    <div style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1682347641333-b9080bfe7af3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2OHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60")' }} className=' w-full h-full bg-no-repeat bg-cover bg-center w-[700px] h-[500px]'></div>
-                </Parallax>
-            </div>
+            <p className='text-lg text-gray'>{discription}</p>
+            <img src={first_image_url} width="60%" className="ml-auto" alt="" />
+            <Parallax offset={100} className="-mt-[7rem] mb-[5rem]" >
+                <img src={second_image_url} width="60%" className="" alt="" />
+            </Parallax>
         </div>
     )
 }

@@ -50,7 +50,7 @@ const List = () => {
 export default function Home() {
     return (
         <div>
-            <TextRevealAnimation classNames='mb-[10rem]' lines={['Selected', 'Works']} />
+            <TextRevealAnimation classNames='lg:my-[10rem] my-[5rem]' lines={['Selected', 'Works']} />
             <AnimatePresence>
                 <List />
             </AnimatePresence>

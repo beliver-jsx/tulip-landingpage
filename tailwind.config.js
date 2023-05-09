@@ -7,6 +7,24 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+      '3xl': '1629px',
+      '4xl': '1920px',
+
+      // custom breakpoints;
+
+
+
+
+
+
+
+    },
     extend: {
 
       colors: {
@@ -22,6 +40,8 @@ module.exports = {
           letterSpacing: '-0.01em',
           fontWeight: '500',
         }],
+
+
 
         'md': ['16px', {
           lineHeight: '1.4rem',
@@ -42,9 +62,9 @@ module.exports = {
           fontWeight: '600',
         }],
 
-        'xl': ['9rem', {
-          lineHeight: '200px',
-          letterSpacing: '0.01em',
+        'xl': ['8.5rem', {
+          lineHeight: '180px',
+          letterSpacing: '-0.02em',
           fontWeight: '800',
         }]
       },

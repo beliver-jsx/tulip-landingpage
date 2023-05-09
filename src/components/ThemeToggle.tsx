@@ -8,10 +8,10 @@ import { useTheme } from 'next-themes'
 import { cursor } from '@/store/slices'
 import { useAppDispatch } from '@/store/hooks'
 
-
 const ThemeToggle = () => {
-    const { theme, setTheme } = useTheme()
     const dispatch = useAppDispatch()
+    const { theme, setTheme } = useTheme();
+
     const handleFocused = () => {
         dispatch(cursor('focused'))
     }
@@ -27,7 +27,7 @@ const ThemeToggle = () => {
         <div
             onMouseEnter={handleFocused}
             onMouseLeave={handleDefault}
-            className='flex justify-end'>
+            className='lg:flex justify-end hidden'>
 
             <div className="switch"
                 onClick={toggleSwitch}

@@ -1,0 +1,1 @@
+export const responsive_heading_ap = " 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]"

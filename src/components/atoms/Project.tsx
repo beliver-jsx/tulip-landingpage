@@ -73,7 +73,6 @@ const ProjectListItem = ({ index, item }: any) => {
         <motion.li
             id='outer-layer'
             onClick={handleClick}
-            variants={itemVariants}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className='cursor-pointer overflow-hidden mb-6 z-10'>
@@ -99,10 +98,36 @@ const ProjectListItem = ({ index, item }: any) => {
                     <motion.div
                         className='flex relative'>
                         <motion.h3
-                            className='text-elg tracking-wider'
+                            className=' tracking-wider
+                            
+                                   
+                        4xl:text-elg
+                        3xl:text-[75px]
+                        2xl:text-[75px]
+                        xl:text-[70px]
+                        lg:text-[70px]
+                        md:text-[60px]
+                        text-[40px]
+                        font-bold
+                            
+                            
+                            '
                             animate={simpleTextControl}>{item.name}</motion.h3>
                         <motion.h3
-                            className={`absolute outline-text text-elg tracking-wider`}
+                            className={`absolute outline-text  tracking-wider
+                            
+                                   
+                        4xl:text-elg
+                        3xl:text-[75px]
+                        2xl:text-[75px]
+                        xl:text-[70px]
+                        lg:text-[70px]
+                        md:text-[60px]
+                        text-[40px]
+                        font-bold
+                            
+                            
+                            `}
                             animate={OutlineTextControl}>{item.name}</motion.h3>
                     </motion.div>
                 </RevealAnimation>

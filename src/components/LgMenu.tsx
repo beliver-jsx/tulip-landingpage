@@ -27,7 +27,7 @@ const LgMenu = () => {
     }
 
     return (
-        <div className=" grid gap-y-3.5 ">
+        <div className=" hidden gap-y-3.5 lg:grid ">
             {listOfLinks.map((Link) => <LgMenuBtn
                 click={click[Link.name]}
                 text={Link.name}
