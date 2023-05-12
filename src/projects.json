@@ -1,5 +1,20 @@
 [
     {
-        "name": "portfolio"
+        "name": "portfolio",
+        "index": "0",
+        "images": [],
+        "overview": "This personal portfolio is one of my biggest projects, designed and developed to showcase my projects and to reflect myself. The very website that you're in right now is the work that I'm most proud of.",
+        "story": "I initially had the idea of trying to design and build a personal portfolio website sometime around March 2021. I haven't yet made any projects worth showcasing back then, but I still tried to give it a shot.In the process, I got stuck in a loop of attempting to design and code a portfolio website for months. I was unsatisfied by the outcome many times and thought that I could never make this happen.It all came together after knowing the kind of design that I want, making actual projects, and learning new frameworks and libraries. Everything finally snapped.",
+        "development": "I was not sure with the colors. I got so motivated and inspired by looking at portfolio websites at Awwwards that I was also baffled of the colors and design that I should use. But, I just knew I love black, white, and blue as a color combination.This website was initially intended to be built with React only. But after discovering Next.JS, it was a great choice to build the website with it. Next.JS tremendously improved the performance along with the optimization of images.Stylings for the UI were done with Styled Components. The library was a big help in making reusable and fully customizable components for the website.For the animations, they were all done with Framer Motion. It made it easy to create seamless and reactive animations",
+        "next": "twitter clone"
+    },
+    {
+        "name": "portfolio",
+        "index": "0",
+        "images": [],
+        "overview": "This personal portfolio is one of my biggest projects, designed and developed to showcase my projects and to reflect myself. The very website that you're in right now is the work that I'm most proud of.",
+        "story": "I initially had the idea of trying to design and build a personal portfolio website sometime around March 2021. I haven't yet made any projects worth showcasing back then, but I still tried to give it a shot.In the process, I got stuck in a loop of attempting to design and code a portfolio website for months. I was unsatisfied by the outcome many times and thought that I could never make this happen.It all came together after knowing the kind of design that I want, making actual projects, and learning new frameworks and libraries. Everything finally snapped.",
+        "development": "I was not sure with the colors. I got so motivated and inspired by looking at portfolio websites at Awwwards that I was also baffled of the colors and design that I should use. But, I just knew I love black, white, and blue as a color combination.This website was initially intended to be built with React only. But after discovering Next.JS, it was a great choice to build the website with it. Next.JS tremendously improved the performance along with the optimization of images.Stylings for the UI were done with Styled Components. The library was a big help in making reusable and fully customizable components for the website.For the animations, they were all done with Framer Motion. It made it easy to create seamless and reactive animations",
+        "next": "twitter clone"
     }
 ]

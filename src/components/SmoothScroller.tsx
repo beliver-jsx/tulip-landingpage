@@ -55,9 +55,8 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
 
 
     const physics = {
-        damping: 20,
-        stiffness: 70,
-        mass: 0.10,
+        damping: 80,
+        stiffness: 200,
     }
 
 

@@ -62,18 +62,14 @@ body {
     height: 20px;
     border-radius: 40px;
   }
+/* html::-webkit-scrollbar {
+  display: none;
+}
 
-  html::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  html {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-  }
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} */
 
 
   .outline-text {

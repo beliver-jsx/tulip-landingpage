@@ -30,7 +30,8 @@
     "**/*.tsx",
     "src/pages/index.jsx",
     "src/pages/test.tsx",
-    "src/components/Cursor.jsx"
+    "src/components/Cursor.jsx",
+    "src/components/Animation/NewParallex.jsx"
   ],
   "exclude": [
     "node_modules"
