@@ -23,6 +23,7 @@ const LargeTextWithImages: React.FC<largeTextWithImages> = ({
         dispatch(cursor('focused'))
         OutlineTextControl.start({ opacity: 0 }, { duration: .4 })
     }
+
     const handleInnerMouseLeave = () => {
         dispatch(cursor('default'))
         OutlineTextControl.start({ opacity: 1 }, { duration: .4 })

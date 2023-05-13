@@ -32,7 +32,6 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
 
     // Cursor Placement & Animation
     const cursor = useAppSelector(store => store.deafult.cursorState)
-    console.log(cursor)
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const handleMouseMove = (event: any) => {
         setMousePos({ x: event.clientX, y: event.clientY });
@@ -47,24 +46,28 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
     // mouse varients
     const varients = {
         focused: {
-            zIndex: -10,
+            zIndex: 3,
             width: '60px',
             height: '60px',
             top: mousePos.y + -30,
             left: mousePos.x + -30,
             background: '#4b6dc17e',
+            borderRadius: '100%',
+            position: 'fixed',
             transition: {
                 type: "ease",
                 mass: 0.17
             }
         },
         def: {
-            zIndex: -10,
+            zIndex: 3,
             width: '20px',
             height: '20px',
             top: mousePos.y + -10,
             left: mousePos.x + -10,
             background: '#4b6cc1',
+            borderRadius: '100%',
+            position: 'fixed',
             transition: {
                 type: "ease",
                 mass: 0.17
@@ -75,8 +78,10 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
     return (
         <div>
             <motion.div
-                animate={cursor == 'default' ? varients.def : varients.focused}
-                className="circle z-40 fixed rounded-full">
+                style={{
+                    pointerEvents: 'none'
+                }}
+                animate={cursor == 'default' ? varients.def : varients.focused as any}>
             </motion.div>
 
             <motion.div
