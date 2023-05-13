@@ -46,28 +46,24 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
     // mouse varients
     const varients = {
         focused: {
-            zIndex: 3,
+            zIndex: 1,
             width: '60px',
             height: '60px',
             top: mousePos.y + -30,
             left: mousePos.x + -30,
             background: '#4b6dc17e',
-            borderRadius: '100%',
-            position: 'fixed',
             transition: {
                 type: "ease",
                 mass: 0.17
             }
         },
         def: {
-            zIndex: 3,
-            width: '20px',
-            height: '20px',
-            top: mousePos.y + -10,
-            left: mousePos.x + -10,
+            zIndex: 1,
+            width: '15px',
+            height: '15px',
+            top: mousePos.y + -7.5,
+            left: mousePos.x + -7.5,
             background: '#4b6cc1',
-            borderRadius: '100%',
-            position: 'fixed',
             transition: {
                 type: "ease",
                 mass: 0.17
@@ -81,7 +77,8 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
                 style={{
                     pointerEvents: 'none'
                 }}
-                animate={cursor == 'default' ? varients.def : varients.focused as any}>
+                animate={cursor == 'default' ? varients.def : varients.focused}
+                className="circle z-40 fixed rounded-full">
             </motion.div>
 
             <motion.div

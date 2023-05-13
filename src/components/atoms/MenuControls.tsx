@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 const DynamicToggler = dynamic(() => import('../ThemeToggle'),
     { ssr: false })
+import { hover_tracking_and_bold } from '@/animation'
 
 
 const MenuControls = ({ handleDefault, handleFocused }: any) => (
@@ -14,7 +15,7 @@ const MenuControls = ({ handleDefault, handleFocused }: any) => (
                     onHoverEnd={handleDefault}
                     className=" cursor-pointer text-md"
                     onHoverStart={handleFocused}
-                    whileHover={{ letterSpacing: '1px', color: '#4b6cc1' }}>Richard William's <br /> Portfolio</motion.h5>
+                    whileHover={hover_tracking_and_bold}>Richard William's <br /> Portfolio</motion.h5>
             </Link>
         </div>
 
