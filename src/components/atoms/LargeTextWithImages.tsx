@@ -34,22 +34,19 @@ const LargeTextWithImages: React.FC<largeTextWithImages> = ({
             onMouseLeave={handleInnerMouseLeave}
             className='py-[5rem] border-y-2 border-gray'>
             <Parallax className="mt-[5rem] mb-[1rem]" offset={50}>
-                <motion.div
-                    className='flex relative'>
-                    <motion.h3
-                        className='tracking-wider 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]'
+                <motion.div className='flex relative'>
+                    <motion.h3 className='tracking-wider 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]'
                         animate={simpleTextControl}>{heading}</motion.h3>
-                    <motion.h3
-                        className={`absolute outline-text tracking-wider 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]`}
+                    <motion.h3 className={`absolute outline-text tracking-wider 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]`}
                         animate={OutlineTextControl}>{heading}</motion.h3>
                 </motion.div>
             </Parallax>
             <p className='text-lg text-gray'>{discription}</p>
-            <img src={first_image_url} width="60%" className="ml-auto" alt="" />
+            <img src={first_image_url} width="60%" className="ml-auto" alt="project-image" />
             <Parallax offset={100} className="-mt-[7rem] mb-[5rem]" >
-                <img src={second_image_url} width="60%" className="" alt="" />
+                <img src={second_image_url} width="60%" className="" alt="poject-image" />
             </Parallax>
-        </div>
+        </div >
     )
 }
 

@@ -5,18 +5,6 @@ import { useAppDispatch } from '@/store/hooks'
 import RevealAnimation from '../Animation/RevealAnimation';
 import { motion, AnimatePresence, useAnimationControls } from 'framer-motion'
 
-const itemVariants = {
-    hidden: {
-        opacity: 0
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: 0.5 // Set the duration of the animation
-        }
-    }
-};
-
 const LineVarient = {
     hidden: {
         width: '0%'
@@ -51,7 +39,6 @@ const ProjectListItem = ({ index, item }: any) => {
 
 
     // Inner Layer Text Controls
-
     const simpleTextControl = useAnimationControls()
     const OutlineTextControl = useAnimationControls()
 
@@ -60,13 +47,10 @@ const ProjectListItem = ({ index, item }: any) => {
     const handleInnerMouseEnter = () => {
         dispatch(cursor('focused'))
         OutlineTextControl.start({ opacity: 0 }, { duration: .4 })
-
-
     }
     const handleInnerMouseLeave = () => {
         dispatch(cursor('default'))
         OutlineTextControl.start({ opacity: 1 }, { duration: .4 })
-
     }
 
     return (
@@ -76,6 +60,7 @@ const ProjectListItem = ({ index, item }: any) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className='cursor-pointer overflow-hidden mb-6 z-10'>
+
             <div>
                 <motion.div
                     variants={LineVarient}
@@ -98,20 +83,7 @@ const ProjectListItem = ({ index, item }: any) => {
                     <motion.div
                         className='flex relative'>
                         <motion.h3
-                            className=' tracking-wider
-                            
-                                   
-                        4xl:text-elg
-                        3xl:text-[75px]
-                        2xl:text-[75px]
-                        xl:text-[70px]
-                        lg:text-[70px]
-                        md:text-[60px]
-                        text-[40px]
-                        font-bold
-                            
-                            
-                            '
+                            className='tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-bold'
                             animate={simpleTextControl}>{item.name}</motion.h3>
                         <motion.h3
                             className={`absolute outline-text  tracking-wider
