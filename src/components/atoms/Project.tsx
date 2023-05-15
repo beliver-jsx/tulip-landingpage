@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useAppDispatch } from '@/store/hooks'
 import RevealAnimation from '../Animation/RevealAnimation';
 import { motion, AnimatePresence, useAnimationControls } from 'framer-motion'
+import { useTheme } from 'next-themes';
 
 const LineVarient = {
     hidden: {
@@ -22,6 +23,7 @@ const LineVarient = {
 const ProjectListItem = ({ index, item }: any) => {
 
     const { push } = useRouter()
+    const { theme, setTheme } = useTheme()
     const dispatch = useAppDispatch()
     const [visible, setVisible] = useState(false)
 
@@ -65,7 +67,7 @@ const ProjectListItem = ({ index, item }: any) => {
                 <motion.div
                     variants={LineVarient}
                     className='relative'
-                    style={{ height: '1px', background: 'white' }}>
+                    style={{ height: '1px', background: theme == 'light' ? 'gray' : 'white' }}>
                 </motion.div>
             </div>
 
@@ -83,24 +85,10 @@ const ProjectListItem = ({ index, item }: any) => {
                     <motion.div
                         className='flex relative'>
                         <motion.h3
-                            className=' capitalize tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-bold'
+                            className=' capitalize tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-[1000]'
                             animate={simpleTextControl}>{item.name}</motion.h3>
                         <motion.h3
-                            className={`absolute outline-text  tracking-wider
-                            
-                                   
-                        4xl:text-elg
-                        3xl:text-[75px]
-                        2xl:text-[75px]
-                        xl:text-[70px]
-                        lg:text-[70px]
-                        md:text-[60px]
-                        text-[40px]
-                        font-bold
-                        capitalize
-                            
-                            
-                            `}
+                            className={`absolute outline-text  tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-[1000] capitalize`}
                             animate={OutlineTextControl}>{item.name}</motion.h3>
                     </motion.div>
                 </RevealAnimation>

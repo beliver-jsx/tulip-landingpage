@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 import { delay } from '@reduxjs/toolkit/dist/utils';
 import { useRouter } from 'next/router';
 import ThemeToggle from './ThemeToggle';
+import useMobileDetect from '@/hooks/useMobileDetect';
 
 const getRandomText = () => {
     function getDayName() {
@@ -24,10 +25,10 @@ const getRandomText = () => {
 
 const Layout = ({ children }: any) => {
 
-    const [isMenuVisible, setMenuVisible] = useState(!true)
 
+    const isMobile = useMobileDetect()
+    const [isMenuVisible, setMenuVisible] = useState(!true)
     const loadingTextAnimationControls = useAnimationControls()
-    const loadingWrapperAnimationControls = useAnimationControls()
     const [AnimeState, setAnimeState] = useState(true)
 
 
@@ -46,9 +47,7 @@ const Layout = ({ children }: any) => {
             ease: [1, 1, .70, .90],
         })
 
-
         const timer = setTimeout(() => {
-
             loadingTextAnimationControls.start({ y: "-110%", opacity: 0 }, {
                 duration: .8,
                 ease: [1, 1, .70, .90],
@@ -71,7 +70,6 @@ const Layout = ({ children }: any) => {
 
     return (
         <>
-
             <AnimatePresence>
                 {isMenuVisible && <MobileMenu {...{ isMenuVisible, setMenuVisible }} />}
             </AnimatePresence>
@@ -102,6 +100,9 @@ const Layout = ({ children }: any) => {
                         <SmoothScroll>
                             <motion.div>{children}</motion.div>
                         </SmoothScroll>
+
+
+
 
                     </div>)}
             </AnimatePresence>

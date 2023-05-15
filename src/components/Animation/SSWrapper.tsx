@@ -10,6 +10,7 @@ import {
 import Skew from "../Skew"
 
 import { useAppSelector } from "@/store/hooks"
+import useMobileDetect from "@/hooks/useMobileDetect"
 
 const SmoothScroll = ({ children }: any) => {
     // scroll container
@@ -56,8 +57,6 @@ const SmoothScroll = ({ children }: any) => {
             document.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
-
-
 
 
     // mouse varients
