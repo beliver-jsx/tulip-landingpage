@@ -11,6 +11,12 @@ const listOfLinks = [
 const LgMenu = () => {
     const { push, pathname } = useRouter()
 
+    const isActiveLink = (path: string) => {
+        return pathname === path ? true : false;
+    };
+
+    console.log(pathname)
+
     const click: any = {
         home: () => {
             push('/')
@@ -28,11 +34,29 @@ const LgMenu = () => {
 
     return (
         <div className=" hidden gap-y-3.5 lg:grid ">
-            {listOfLinks.map((Link) => <LgMenuBtn
-                click={click[Link.name]}
-                text={Link.name}
-                active={pathname === Link.href}
-            />)}
+            <LgMenuBtn
+                click={() => { push('/') }}
+                text={'Home'}
+                active={isActiveLink('/')}
+            />
+
+            <LgMenuBtn
+                click={() => { push('/about') }}
+                text={'About'}
+                active={isActiveLink('/about')}
+            />
+
+            <LgMenuBtn
+                click={() => { push('/projects') }}
+                text={'Projects'}
+                active={isActiveLink('/projects')}
+            />
+
+            <LgMenuBtn
+                click={() => { }}
+                text={'Contact'}
+                active={false}
+            />
         </div>
     )
 }
