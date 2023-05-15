@@ -79,12 +79,12 @@ const Layout = ({ children }: any) => {
                     <motion.div
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1.5 }}
-                        className="fixed z-50 top-0 left-0 w-full h-full bg-white flex items-center justify-center">
+                        className="fixed z-50 top-0 left-0 w-full h-full bg-white dark:bg-black flex items-center justify-center">
                         <motion.div className='overflow-y-hidden'>
                             <motion.div
                                 initial={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}>
-                                <p className='text-elg font-bold first-letter:capitalize '>The Paragraph Goes here..</p>
+                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{getRandomText()}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
