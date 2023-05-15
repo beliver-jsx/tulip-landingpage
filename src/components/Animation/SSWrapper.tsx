@@ -15,6 +15,7 @@ import useMobileDetect from "@/hooks/useMobileDetect"
 const SmoothScroll = ({ children }: any) => {
     // scroll container
     const scrollRef = useRef<any>(null)
+    const isMobile = useMobileDetect()
 
     // page scrollable height based on content length
     const [pageHeight, setPageHeight] = useState(0)
@@ -59,6 +60,8 @@ const SmoothScroll = ({ children }: any) => {
     }, []);
 
 
+
+
     // mouse varients
     const varients = {
         focused: {
@@ -91,6 +94,13 @@ const SmoothScroll = ({ children }: any) => {
     return (
         <>
 
+            <motion.div
+                style={{
+                    pointerEvents: 'none'
+                }}
+                animate={cursor == 'default' ? varients.def : varients.focused}
+                className="circle z-40 fixed rounded-full">
+            </motion.div>
 
 
             <motion.div
