@@ -16,7 +16,6 @@ const OutlineText: React.FC<props> = ({
     const dispatch = useAppDispatch()
     const { theme, setTheme } = useTheme()
 
-    console.log(theme)
 
     const simpleTextControl = useAnimationControls()
     const OutlineTextControl = useAnimationControls()

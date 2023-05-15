@@ -62,7 +62,7 @@ const Parallax = ({
     }
 
     return (
-        <motion.div className={className} ref={ref} style={{}}>
+        <motion.div className={className} ref={ref} style={{ y }}>
             {children}
         </motion.div>
     );

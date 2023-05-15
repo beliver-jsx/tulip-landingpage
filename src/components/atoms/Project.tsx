@@ -34,7 +34,7 @@ const ProjectListItem = ({ index, item }: any) => {
     }
 
     const handleClick = () => {
-        push('/')
+        push(`projects/${item.name}`)
     }
 
 
@@ -83,7 +83,7 @@ const ProjectListItem = ({ index, item }: any) => {
                     <motion.div
                         className='flex relative'>
                         <motion.h3
-                            className='tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-bold'
+                            className=' capitalize tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-bold'
                             animate={simpleTextControl}>{item.name}</motion.h3>
                         <motion.h3
                             className={`absolute outline-text  tracking-wider
@@ -97,6 +97,7 @@ const ProjectListItem = ({ index, item }: any) => {
                         md:text-[60px]
                         text-[40px]
                         font-bold
+                        capitalize
                             
                             
                             `}

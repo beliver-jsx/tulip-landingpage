@@ -10,11 +10,25 @@
 
 }
 
+.scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+
 body {
   color: #000;
   background: #fff;
   transition: all .5s;
   font-family: 'Manrope', sans-serif !important;
+  overscroll-behavior-y: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 }
 
 .dark,
