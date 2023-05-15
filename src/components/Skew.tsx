@@ -49,7 +49,7 @@ const Skew: React.FC<props> = ({ children }) => {
             const difference = data.current - data.rounded;
             const acceleration = difference / size.width;
             const velocity = +acceleration;
-            const skew = velocity * 15;
+            const skew = velocity * 8;
 
             //Assign skew and smooth scrolling to the scroll container
             if (scrollContainer.current) {

@@ -10,6 +10,10 @@
 
 }
 
+* {
+  transition: background-color 1s cubic-bezier(0.16, 1, 0.3, 1) 0s;
+}
+
 .scroll-container {
   position: fixed;
   top: 0;
@@ -50,6 +54,10 @@ body {
   ::selection {
     color: #4b6cc1;
     background: transparent;
+  }
+
+  .no-pointer-effects {
+    pointer-events: none;
   }
 
 

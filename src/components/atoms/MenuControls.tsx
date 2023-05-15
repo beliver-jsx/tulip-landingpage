@@ -2,13 +2,13 @@ import Link from 'next/link'
 import LgMenu from '../LgMenu'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
+import { hover_tracking_and_bold } from '@/animation'
 const DynamicToggler = dynamic(() => import('../ThemeToggle'),
     { ssr: false })
-import { hover_tracking_and_bold } from '@/animation'
 
 
-const MenuControls = ({ handleDefault, handleFocused }: any) => (
-    <div className="w-full h-full fixed top-0 left-0 p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] grid grid-cols-2">
+const MenuControls = ({ handleDefault, handleFocused, isMenuVisible, setMenuVisible }: any) => (
+    <div className="w-full lg:h-full fixed lg:z-0 z-[999999]  top-0 left-0 p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] grid grid-cols-2">
         <div>
             <Link href={'/'}>
                 <motion.h5
@@ -21,13 +21,14 @@ const MenuControls = ({ handleDefault, handleFocused }: any) => (
 
         <div>
             <DynamicToggler />
+            <MobileMenuToggleButton {...{ isMenuVisible, setMenuVisible }} />
         </div>
 
-        <div className="flex items-end w-full h-full">
+        <div className="hidden lg:flex items-end w-full h-full ">
             <LgMenu />
         </div>
 
-        <div className="flex items-end justify-end w-full h-full">
+        <div className="hidden lg:flex items-end justify-end w-full h-full ">
             <Link href={'/'}>
                 <motion.h5
                     onHoverEnd={handleDefault}
@@ -39,5 +40,39 @@ const MenuControls = ({ handleDefault, handleFocused }: any) => (
     </div>
 )
 
-
 export default MenuControls
+
+
+const MobileMenuToggleButton = ({ isMenuVisible, setMenuVisible }: any) => {
+    const transition = {
+        duration: .4
+    }
+    const animation = {
+        top: { rotate: isMenuVisible ? 45 : 0 },
+        bottom: {
+            rotate: isMenuVisible ? -45 : 0,
+            marginTop: isMenuVisible ? 0 : 5
+        }
+    }
+
+    const handleClick = () => {
+        setMenuVisible(!isMenuVisible)
+        console.log('hey')
+    }
+    return (
+        <div className='lg:hidden justify-end flex  '>
+            <button
+                className='p-5 pr-0'
+                onClick={handleClick}>
+                <motion.div
+                    animate={animation.top}
+                    transition={transition}
+                    className='dark:bg-white bg-black h-[1px] w-[35px]'></motion.div>
+                <motion.div
+                    transition={transition}
+                    animate={animation.bottom}
+                    className='dark:bg-white bg-black h-[1px] w-[35px]'></motion.div>
+            </button>
+        </div>
+    )
+}

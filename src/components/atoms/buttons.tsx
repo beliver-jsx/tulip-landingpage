@@ -27,3 +27,4 @@ export const LgMenuBtn: React.FC<props> = ({ click, text, active }) => {
             whileHover={hoverStyle}>{text}</motion.button>
     )
 }
+
