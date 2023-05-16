@@ -33,7 +33,7 @@ const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
 
             {
                 lines.map((line, index) => (
-                    <motion.div key={index} style={{ overflow: 'hidden', maxHeight: "190px", background: 'whitesmoke', marginBottom: '1rem' }}>
+                    <motion.div key={index} style={{ overflow: 'hidden', maxHeight: "100%", marginBottom: '1rem' }}>
                         <motion.div
                             style={{ y: 300, opacity: 0 }}
                             animate={{
