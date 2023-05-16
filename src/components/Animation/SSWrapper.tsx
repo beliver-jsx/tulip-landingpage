@@ -93,15 +93,15 @@ const SmoothScroll = ({ children }: any) => {
                 className="circle z-40 fixed rounded-full">
             </motion.div>
 
-
             <motion.div
                 ref={scrollRef}
                 style={{ y: isMobile ? transform : spring }} // translateY of scroll container using negative scroll value
                 className="fixed 4xl:w-[calc(100%-600px)] 3xl:w-[calc(100%-500px)] 2xl:w-[calc(100%-400px)] xl:w-[calc(100%-352px)] lg:w-[calc(100%-96px)] md:w-[calc(100%-96px)] w-[calc(100%-48px)] 4xl:left-[300px] 3xl:left-[250px] 2xl:left-[200px] xl:left-[176px] lg:left-[48px] md:left-[48px] left-[24px] top-0 h-max "
             >
-                <Skew>
-                    {children}
-                </Skew>
+                {!isMobile
+                    ? (<Skew>{children}</Skew>)
+                    : (<div>{children}</div>)
+                }
             </motion.div>
             {/* blank div that has a dynamic height based on the content's inherent height */}
             {/* this is neccessary to allow the scroll container to scroll... */}
