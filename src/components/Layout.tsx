@@ -43,14 +43,14 @@ const Layout = ({ children }: any) => {
 
     useEffect(() => {
         loadingTextAnimationControls.start({ y: "0%", opacity: 1 }, {
-            duration: 1,
-            ease: [1, 1, .70, .90],
+            duration: .8,
+            ease: [0.25, 0.1, 0.25, 1],
         })
 
         const timer = setTimeout(() => {
             loadingTextAnimationControls.start({ y: "-110%", opacity: 0 }, {
                 duration: .8,
-                ease: [1, 1, .70, .90],
+                ease: [0.25, 0.1, 0.25, 1],
             })
 
             setTimeout(() => {
@@ -84,7 +84,7 @@ const Layout = ({ children }: any) => {
                             <motion.div
                                 initial={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}>
-                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>The Paragraph</p>
+                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{getRandomText()}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -115,9 +115,6 @@ const Layout = ({ children }: any) => {
                                 </SmoothScroll>
                             </motion.div>
                         </AnimatePresence>
-
-
-
 
                     </div>)}
             </AnimatePresence>
