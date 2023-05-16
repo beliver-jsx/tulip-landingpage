@@ -7,8 +7,7 @@ import { motion } from "framer-motion";
 const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
     return (
         <motion.div
-            className={classNames}
-        >
+            className={classNames}>
 
             {
                 lines.map((line, index) => (
@@ -24,9 +23,8 @@ const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
                                 }
                             }}
 
-
                         >
-                            <h1 className="text-xl">{line}</h1>
+                            <h1 className="4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]">{line}</h1>
                         </motion.div>
 
                     </motion.div>
@@ -34,12 +32,6 @@ const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
             }
 
         </motion.div>
-
-
-
-
-
-
     )
 }
 export default TextRevealAnimation
