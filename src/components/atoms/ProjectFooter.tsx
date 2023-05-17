@@ -70,10 +70,10 @@ const Next = ({ name, href }: { name: string, href: string }) => {
                 className='flex relative'
             >
                 <motion.h3
-                    className={`tracking-wider text-[7rem] font-[1000]`}
+                    className={`tracking-wider  first-letter 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]`}
                     animate={simpleTextControl}>Next</motion.h3>
                 <motion.h3
-                    className={`absolute outline-text text-[7rem] font-[1000] tracking-wider `}
+                    className={`absolute outline-text  tracking-wider first-letter 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800] `}
                     animate={OutlineTextControl}>Next</motion.h3>
             </motion.div>
 
@@ -125,10 +125,10 @@ const Previous = ({ name, href }: { name: string, href: string }) => {
             <motion.div
                 className='flex relative'>
                 <motion.h3
-                    className={`tracking-wider text-[7rem] font-[1000]`}
+                    className={`tracking-wider 4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]`}
                     animate={simpleTextControl}>Previous</motion.h3>
                 <motion.h3
-                    className={`absolute outline-text  text-[7rem] font-[1000] tracking-wider `}
+                    className={`absolute outline-text  tracking-wider  4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]`}
                     animate={OutlineTextControl}>Previous</motion.h3>
             </motion.div>
 

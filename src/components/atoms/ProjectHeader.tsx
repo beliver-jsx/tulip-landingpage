@@ -20,7 +20,7 @@ const Header: React.FC<props> = ({ name, index }) => {
                                     ease: [1, 1, .70, .90],
                                     delay: 0,
                                 }}>
-                                <h1 className="4xl:text-[40rem]  3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]">{index}</h1>
+                                <h1 className="4xl:text-[40rem]  3xl:text-[40rem] 2xl:text-[40rem] xl:text-[40rem] lg:text-[40rem] md:text-[40rem] text-[40rem] font-[800]">{index}</h1>
                             </motion.div>
                         </Parallax>
                     </motion.div>
