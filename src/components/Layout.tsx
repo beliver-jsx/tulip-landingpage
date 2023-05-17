@@ -8,8 +8,23 @@ import SmoothScroll from "./Animation/SSWrapper";
 import HorizontalLine from "./atoms/HorizontalLines";
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion'
 
+const getRandomText = () => {
+    function getDayName() {
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const currentDate = new Date();
+        const dayIndex = currentDate.getDay();
+        return days[dayIndex];
+    }
 
-const Layout = ({ children, text }: any) => {
+    const welcome_texts = ['hold on second...', 'gettings it ready', `happy ${getDayName()}!`]
+    const randomNumber = Math.floor(Math.random() * 4)
+    return welcome_texts[randomNumber]
+}
+
+const Layout = ({ children }: any) => {
+
+
+
     const router = useRouter();
     const [AnimeState, setAnimeState] = useState(true)
     const [isMenuVisible, setMenuVisible] = useState(!true)
@@ -64,7 +79,7 @@ const Layout = ({ children, text }: any) => {
                             <motion.div
                                 initial={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}>
-                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{text ? text : ''}</p>
+                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{getRandomText()}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
