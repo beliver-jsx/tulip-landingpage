@@ -1,36 +1,19 @@
-import { AnimatePresence, motion, useAnimationControls } from 'framer-motion'
+import ThemeToggle from './ThemeToggle';
+import { useRouter } from 'next/router';
 import { cursor } from "@/store/slices";
+import { useState, useEffect } from 'react'
 import { useAppDispatch } from "@/store/hooks";
 import MenuControls from "./atoms/MenuControls";
 import SmoothScroll from "./Animation/SSWrapper";
 import HorizontalLine from "./atoms/HorizontalLines";
-import { useState, useEffect } from 'react'
-import { delay } from '@reduxjs/toolkit/dist/utils';
-import { useRouter } from 'next/router';
-import ThemeToggle from './ThemeToggle';
-import useMobileDetect from '@/hooks/useMobileDetect';
+import { AnimatePresence, motion, useAnimationControls } from 'framer-motion'
 
-const getRandomText = () => {
-    function getDayName() {
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const currentDate = new Date();
-        const dayIndex = currentDate.getDay();
-        return days[dayIndex];
-    }
 
-    const welcome_texts = ['hold on second...', 'gettings it ready', `happy ${getDayName()}!`]
-    const randomNumber = Math.floor(Math.random() * 4)
-    return welcome_texts[randomNumber]
-}
-
-const Layout = ({ children }: any) => {
-
+const Layout = ({ children, text }: any) => {
     const router = useRouter();
-    const isMobile = useMobileDetect()
+    const [AnimeState, setAnimeState] = useState(true)
     const [isMenuVisible, setMenuVisible] = useState(!true)
     const loadingTextAnimationControls = useAnimationControls()
-    const [AnimeState, setAnimeState] = useState(true)
-
 
     const dispatch = useAppDispatch()
     const handleFocused = () => {
@@ -39,7 +22,6 @@ const Layout = ({ children }: any) => {
     const handleDefault = () => {
         dispatch(cursor('default'))
     }
-
 
     useEffect(() => {
         loadingTextAnimationControls.start({ y: "0%", opacity: 1 }, {
@@ -66,8 +48,6 @@ const Layout = ({ children }: any) => {
     }, []);
 
 
-
-
     return (
         <>
             <AnimatePresence>
@@ -84,7 +64,7 @@ const Layout = ({ children }: any) => {
                             <motion.div
                                 initial={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}>
-                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{getRandomText()}</p>
+                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{text ? text : ''}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>

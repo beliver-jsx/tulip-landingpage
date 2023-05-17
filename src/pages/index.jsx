@@ -9,8 +9,12 @@ import TextRevealAnimation from '@/components/Animation/TextRevealAnimation'
 
 const Home = () => {
   const router = useRouter()
+
   const handleSeeProjects = () => {
     router.push('/projects')
+  }
+  const handleSeeAboutMe = () => {
+    router.push('/about')
   }
   return (
     <div>
@@ -27,10 +31,9 @@ const Home = () => {
       <section className='lg:mt-[300px] mt-[5rem]  lg:w-[50%] ml-auto mb-[5rem]'>
         <p className='lg:text-lg text-smd font-medium '>I'm a 19-year-old who's passionate about creating interactive <br /> websites that bring an awesome experience to the users. Currently <br /> in 1st year college taking up computer science, but accepting <br /> freelance projects!</p>
         <p className='lg:text-lg text-smd mt-[3rem] font-medium'>I hope you enjoy scrolling!</p>
-        <p className='text-gray lg:text-lg text-smd mt-[3rem] font-medium'>See more about me!</p>
+        <TrackingText handleClick={handleSeeAboutMe} text="See more about me" className='text-lg text-gray mt-5' />
 
       </section>
-
 
       <section>
         {data.map((project) => (
@@ -43,8 +46,6 @@ const Home = () => {
         ))}
       </section>
 
-
-
       <TrackingText handleClick={handleSeeProjects} text="See all projects →" className='text-lg text-gray cursor-pointer mt-10' />
 
       <Footer />
@@ -56,15 +57,14 @@ const Home = () => {
 
 export default Home
 
-//self (componenet) footer
 const Footer = () => {
   return (
     <div>
       <h1 className='text-xl'>Do you have a project idea in mind? Let me know,</h1>
-      <OutlineText classNames='text-xl cursor-pointer' text='Email me!' />
-      <div className='flex gap-5 px-2'>
-        <TrackingText text="Twitter" className='text-lg text-gray' />
-        <TrackingText text="Github" className='text-lg text-gray' />
+      <OutlineText onClick={() => { window.location.href = "mailto:someone@example.com" }} classNames='text-xl cursor-pointer' text='Email me!' />
+      <div className='flex gap-5 px-2 mt-5'>
+        <TrackingText handleClick={() => { window.location.href = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto" }} text="Twitter" className='text-lg text-gray' />
+        <TrackingText handleClick={() => { window.location.href = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto" }} text="Github" className='text-lg text-gray' />
       </div>
     </div>
   )
