@@ -8,7 +8,7 @@ const Header: React.FC<props> = ({ name, index }) => {
     return (
         <header className="relative">
             <div className="h-screen w-full">
-                <div className=" flex items-center font-bold  justify-center h-full text-[#80808034]">
+                <div className=" flex items-center font-bold  justify-center h-full text-[#E5E5E5]">
 
                     <motion.div className='overflow-y-hidden flex items-center  h-[40rem]'>
                         <Parallax className="mt-[5rem]" offset={200}>
@@ -20,7 +20,7 @@ const Header: React.FC<props> = ({ name, index }) => {
                                     ease: [1, 1, .70, .90],
                                     delay: 0,
                                 }}>
-                                <h1 className="4xl:text-[40rem]  3xl:text-[40rem] 2xl:text-[40rem] xl:text-[40rem] lg:text-[40rem] md:text-[40rem] text-[40rem] font-[800]">{index}</h1>
+                                <h1 className="relative 4xl:text-[40rem]  3xl:text-[40rem] 2xl:text-[40rem] xl:text-[40rem] lg:text-[40rem] md:text-[40rem] text-[40rem] font-[800]">{index}</h1>
                             </motion.div>
                         </Parallax>
                     </motion.div>
