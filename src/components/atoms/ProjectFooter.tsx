@@ -7,14 +7,13 @@ interface props {
 import React from 'react'
 import { project } from '@/type'
 import { cursor } from "@/store/slices"
-import { useTheme } from "next-themes"
+import { useRouter } from 'next/router'
 import { useAppDispatch } from "@/store/hooks"
 import { motion, useAnimationControls } from "framer-motion"
 
 const ProjectFooter: React.FC<props> = ({ next, previous }) => {
     return (
         <footer>
-
             <section className='grid grid-cols-2'>
                 {previous && <Previous {...previous} />}
                 {next && <Next {...next} />}
@@ -28,20 +27,14 @@ const ProjectFooter: React.FC<props> = ({ next, previous }) => {
         </footer>)
 }
 
-
-
-
 // Sub Components;
 
-
-const Next = ({ name, href }: any) => {
+const Next = ({ name, href }: { name: string, href: string }) => {
+    const router = useRouter()
     const dispatch = useAppDispatch()
-    const { theme, setTheme } = useTheme()
-
     const simpleTextControl = useAnimationControls()
     const OutlineTextControl = useAnimationControls()
     const trackingTextControl = useAnimationControls()
-
 
     const handleInnerMouseEnter = () => {
         dispatch(cursor('focused'))
@@ -62,10 +55,17 @@ const Next = ({ name, href }: any) => {
             fontWeight: 500,
         })
     }
+
+    const handleClick = () => {
+        router.push(href)
+    }
+
     return (
-        <div className='grid justify-end'
+        <div className='grid justify-end cursor-pointer'
             onMouseEnter={handleInnerMouseEnter}
-            onMouseLeave={handleInnerMouseLeave}>
+            onMouseLeave={handleInnerMouseLeave}
+            onClick={handleClick}
+        >
             <motion.div
                 className='flex relative'
             >
@@ -77,28 +77,21 @@ const Next = ({ name, href }: any) => {
                     animate={OutlineTextControl}>Next</motion.h3>
             </motion.div>
 
-
             <motion.h5
                 animate={trackingTextControl}
                 className='text-lg text-gray capitalize text-right'
             >{name} →</motion.h5>
-
-
         </div>
     )
 }
 
 
-
-
-const Previous = ({ name, href }: any) => {
+const Previous = ({ name, href }: { name: string, href: string }) => {
+    const router = useRouter()
     const dispatch = useAppDispatch()
-    const { theme, setTheme } = useTheme()
-
     const simpleTextControl = useAnimationControls()
     const OutlineTextControl = useAnimationControls()
     const trackingTextControl = useAnimationControls()
-
 
     const handleInnerMouseEnter = () => {
         dispatch(cursor('focused'))
@@ -108,8 +101,8 @@ const Previous = ({ name, href }: any) => {
             color: '#4b6cc1',
             fontWeight: 700,
         })
-
     }
+
     const handleInnerMouseLeave = () => {
         dispatch(cursor('default'))
         OutlineTextControl.start({ opacity: 1 }, { duration: .4 })
@@ -119,14 +112,18 @@ const Previous = ({ name, href }: any) => {
             fontWeight: 500,
         })
     }
+
+    const handleClick = () => {
+        router.push(href)
+    }
     return (
         <div
+            className='cursor-pointer'
+            onClick={handleClick}
             onMouseEnter={handleInnerMouseEnter}
-            onMouseLeave={handleInnerMouseLeave}
-        >
+            onMouseLeave={handleInnerMouseLeave}>
             <motion.div
-                className='flex relative'
-            >
+                className='flex relative'>
                 <motion.h3
                     className={`tracking-wider text-[7rem] font-[1000]`}
                     animate={simpleTextControl}>Previous</motion.h3>

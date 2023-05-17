@@ -28,7 +28,7 @@ const Header: React.FC<props> = ({ name, index }) => {
                 </div>
             </div>
             <div className="h-screen w-full absolute top-0">
-                <div className="text-xl flex items-center font-[800]  justify-center h-full text-black capitalize">
+                <div className="text-xl flex items-center font-[800]  justify-center h-full text-black dark:text-white capitalize">
                     {name}
                 </div>
             </div>
