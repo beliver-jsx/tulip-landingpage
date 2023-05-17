@@ -191,6 +191,7 @@ const Item = ({ setMenuVisible, isMenuVisible, showDelay, hideDelay, text, activ
     return (
         <motion.div onClick={handleClick} className='overflow-y-hidden'>
             <motion.div
+                className=' cursor-pointer hover:text-[#4b6cc1] tracking-[4px]'
                 animate={{
                     y: "0%", opacity: 1, transition: {
                         duration: 1,

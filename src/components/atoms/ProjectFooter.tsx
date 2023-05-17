@@ -14,7 +14,7 @@ import { motion, useAnimationControls } from "framer-motion"
 const ProjectFooter: React.FC<props> = ({ next, previous }) => {
     return (
         <footer>
-            <section className='grid grid-cols-2'>
+            <section className='flex'>
                 {previous && <Previous {...previous} />}
                 {next && <Next {...next} />}
             </section>
@@ -61,7 +61,7 @@ const Next = ({ name, href }: { name: string, href: string }) => {
     }
 
     return (
-        <div className='grid justify-end cursor-pointer'
+        <div className='grid justify-end cursor-pointer flex-1'
             onMouseEnter={handleInnerMouseEnter}
             onMouseLeave={handleInnerMouseLeave}
             onClick={handleClick}
@@ -118,7 +118,7 @@ const Previous = ({ name, href }: { name: string, href: string }) => {
     }
     return (
         <div
-            className='cursor-pointer'
+            className='cursor-pointer flex-1'
             onClick={handleClick}
             onMouseEnter={handleInnerMouseEnter}
             onMouseLeave={handleInnerMouseLeave}>

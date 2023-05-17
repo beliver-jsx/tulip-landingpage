@@ -23,10 +23,7 @@ export const LgMenuBtn: React.FC<props> = ({ click, text, active }) => {
             onHoverEnd={handleDefault}
             onHoverStart={handleFocused}
             style={active ? hoverStyle : {}}
-            className="text-left text-md font-semibold capitalize w-max hover:tracking-[5px] hover:text-blue"
-
-
-        >{text}</motion.button>
+            className="text-left text-md font-semibold capitalize w-max hover:tracking-[5px] hover:text-blue cursor-pointer">{text}</motion.button>
     )
 }
 
