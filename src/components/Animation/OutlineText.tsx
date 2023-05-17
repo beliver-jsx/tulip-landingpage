@@ -14,7 +14,6 @@ const OutlineText: React.FC<props> = ({
     text, classNames, onClick
 }) => {
     const dispatch = useAppDispatch()
-    const { theme, setTheme } = useTheme()
 
 
     const simpleTextControl = useAnimationControls()
@@ -41,10 +40,12 @@ const OutlineText: React.FC<props> = ({
             onMouseLeave={handleInnerMouseLeave}>
             <motion.h3
                 className={`tracking-wider ${classNames}`}
-                animate={simpleTextControl}>{text}</motion.h3>
+                animate={simpleTextControl}
+                initial={{ opacity: 1 }}>{text}</motion.h3>
             <motion.h3
                 className={`absolute outline-text  tracking-wider ${classNames}`}
-                animate={OutlineTextControl}>{text}</motion.h3>
+                animate={OutlineTextControl}
+                initial={{ opacity: 1 }}>{text}</motion.h3>
         </motion.div>
 
     )
