@@ -7,8 +7,9 @@ import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { cursor } from '@/store/slices'
 import { useAppDispatch } from '@/store/hooks'
+import { ReactReduxContext } from 'react-redux';
 
-const ThemeToggle = ({ sm }: { sm?: boolean }) => {
+const ThemeToggle = () => {
     const dispatch = useAppDispatch()
     const { theme, setTheme } = useTheme();
 
@@ -22,6 +23,7 @@ const ThemeToggle = ({ sm }: { sm?: boolean }) => {
     const toggleSwitch = () => {
         setTheme(theme == 'light' ? 'dark' : 'light')
     };
+
 
     return (
         <div
@@ -42,4 +44,11 @@ const ThemeToggle = ({ sm }: { sm?: boolean }) => {
     )
 }
 export default ThemeToggle
+
+
+
+
+
+
+
 

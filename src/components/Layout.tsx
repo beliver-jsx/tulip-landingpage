@@ -77,9 +77,10 @@ const Layout = ({ children }: any) => {
                         className="fixed z-50 top-0 left-0 w-full h-full bg-white dark:bg-black flex items-center justify-center">
                         <motion.div className='overflow-y-hidden'>
                             <motion.div
-                                initial={{ y: "100%", opacity: 0 }}
-                                animate={loadingTextAnimationControls}>
-                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{getRandomText()}</p>
+                                style={{ y: "100%", opacity: 0 }}
+                                animate={loadingTextAnimationControls}
+                                initial={{ opacity: 1 }}>
+                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>The paragraph</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -130,7 +131,7 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
             animate={{ height: '100%', transition: { duration: 1 } }}
             exit={{ height: "0%", transition: { duration: 1, delay: 2 } }}
 
-            className="bg-[#ececec] dark:bg-black  w-full  fixed lg:z-0 z-50  top-0 left-0 p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] pt-[6rem]"
+            className="bg-[#ececec] dark:bg-black w-full fixed lg:z-0 z-50  top-0 left-0 p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] pt-[6rem]"
         >
             <motion.div className='mt-[10rem]'>
 
@@ -142,20 +143,15 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
                 >&nbsp;</motion.div>
 
                 <motion.div className='mt-5'>
+
+
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: .8, hideDelay: 1.1, text: 'Home', active: pathname === '/', path: '/' }} />
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: .9, hideDelay: 1, text: 'About', active: pathname === '/about', path: '/about' }} />
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: 1, hideDelay: .9, text: 'Projects', active: pathname === '/projects', path: '/projects' }} />
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: 1.1, hideDelay: .8, text: 'Contact', active: false, onclick: () => { alert('') } }} />
-
-
-
-
+                    <Toggle />
 
                 </motion.div>
-
-                <ThemeToggle />
-
-
 
             </motion.div>
         </motion.div>
@@ -211,5 +207,51 @@ const Item = ({ setMenuVisible, isMenuVisible, showDelay, hideDelay, text, activ
                 <motion.h1 animate={animation} style={active ? { color: '#4b6cc1' } : undefined} className="text-[2.5rem] font-semibold">{text}</motion.h1>
             </motion.div>
         </motion.div >
+    )
+}
+
+// this is theme toggler for small (responsiveness)
+const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30
+};
+
+import { useTheme } from 'next-themes';
+
+const Toggle = () => {
+    const dispatch = useAppDispatch()
+    const { theme, setTheme } = useTheme();
+
+    const handleFocused = () => {
+        dispatch(cursor('focused'))
+    }
+    const handleDefault = () => {
+        dispatch(cursor('default'))
+    }
+
+    const toggleSwitch = () => {
+        setTheme(theme == 'light' ? 'dark' : 'light')
+    };
+
+    return (
+        <div className=' flex'>
+
+            <div
+                onMouseEnter={handleFocused}
+                onMouseLeave={handleDefault}
+                className='flex justify-end'>
+
+                <div className="switch"
+                    onClick={toggleSwitch}
+                    data-isOn={theme === 'dark'}>
+                    <motion.div
+                        layout
+                        transition={spring}
+                        className="handle bg-black dark:bg-white" />
+                </div>
+
+            </div>
+        </div>
     )
 }
