@@ -26,7 +26,7 @@ const SmoothScroll: React.FC<props> = ({ children }) => {
     }, [scrollRef, resizePageHeight]);
 
     const s = useScroll();
-    const physics = { damping: 80, stiffness: 200, }
+    const physics = { damping: 100, stiffness: 200, }
     const transform = useTransform(s.scrollY, [0, pageHeight], [0, -pageHeight]);
     const spring = useSpring(transform, physics);
 
