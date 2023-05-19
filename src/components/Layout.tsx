@@ -23,17 +23,16 @@ const getRandomText = () => {
 
 const Layout = ({ children }: any) => {
 
-
-
     const router = useRouter();
+    const dispatch = useAppDispatch()
     const [AnimeState, setAnimeState] = useState(true)
     const [isMenuVisible, setMenuVisible] = useState(!true)
     const loadingTextAnimationControls = useAnimationControls()
 
-    const dispatch = useAppDispatch()
     const handleFocused = () => {
         dispatch(cursor('focused'))
     }
+
     const handleDefault = () => {
         dispatch(cursor('default'))
     }
@@ -54,14 +53,12 @@ const Layout = ({ children }: any) => {
                 setAnimeState(false)
             }, 1000)
 
-
         }, 2000);
 
         return () => {
             clearTimeout(timer);
         };
     }, []);
-
 
     return (
         <>
@@ -80,14 +77,7 @@ const Layout = ({ children }: any) => {
                                 style={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}
                                 initial={{ opacity: 1 }}>
-                                <p className=' 4xl:text-h3-4xl
-                        3xl:text-h3-3xl
-                        2xl:text-h3-2xl
-                        xl:text-h3-xl
-                        lg:text-h3-lg
-                        md:text-h3-md
-                        text-h3-xs
-                        !font-bold dark:text-white  first-letter:capitalize '>{getRandomText()}</p>
+                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>{getRandomText()}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
