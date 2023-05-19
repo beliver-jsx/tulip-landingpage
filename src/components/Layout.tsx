@@ -77,7 +77,7 @@ const Layout = ({ children }: any) => {
                                 style={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}
                                 initial={{ opacity: 1 }}>
-                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>{getRandomText()}</p>
+                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>gettings it ready</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -147,7 +147,7 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
                 }
             }}
             className="bg-[#ececec] dark:bg-black w-full fixed lg:z-0 z-50 top-0 left-0">
-            <motion.div className='mt-[15rem] p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] pt-[6rem]'>
+            <motion.div className='md:mt-[15rem] mt-[5rem]  p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] pt-[6rem]'>
 
                 <motion.div
                     style={{ height: 1, width: '0%' }}
@@ -160,7 +160,7 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: .8, hideDelay: 1.1, text: 'Home', active: pathname === '/', path: '/' }} />
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: .9, hideDelay: 1, text: 'About', active: pathname === '/about', path: '/about' }} />
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: 1, hideDelay: .9, text: 'Projects', active: pathname === '/projects', path: '/projects' }} />
-                    <Item {...{ setMenuVisible, isMenuVisible, showDelay: 1.1, hideDelay: .8, text: 'Contact', active: false, onclick: () => { alert('') } }} />
+                    <Item {...{ setMenuVisible, isMenuVisible, showDelay: 1.1, hideDelay: .8, text: 'Contact', active: false, onclick: () => { window.location.href = "mailto:someone@example.com" } }} />
                     <Toggle />
 
                 </motion.div>

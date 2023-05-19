@@ -38,8 +38,10 @@ const LargeTextWithImages: React.FC<Props> = ({
     }
 
     return (
-        <div
+        <motion.div
             onClick={handleClick}
+            onTouchStart={handleInnerMouseEnter}
+            onTouchEnd={handleInnerMouseLeave}
             onMouseEnter={handleInnerMouseEnter}
             onMouseLeave={handleInnerMouseLeave}
             className='py-[5rem] border-y-[1px] border-gray cursor-pointer'>
@@ -84,7 +86,7 @@ const LargeTextWithImages: React.FC<Props> = ({
             <Parallax offset={100} className="-mt-[7rem] mb-[5rem]" >
                 <img src={second_image_url} width="60%" className="" alt="poject-image" />
             </Parallax>
-        </div >
+        </motion.div >
     )
 }
 

@@ -117,8 +117,8 @@ module.exports = {
           fontWeight: '800',
         }],
 
-        'h2-sm': ['4.25rem', {
-          lineHeight: '6.25rem',
+        'h2-sm': ['3rem', {
+          lineHeight: '5rem',
           letterSpacing: '-0.01em',
           fontWeight: '800',
         }],

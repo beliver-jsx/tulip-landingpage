@@ -21,6 +21,8 @@ const TrackingText: React.FC<props> = ({ text, wide, className, handleClick }) =
 
     return (
         <motion.p
+            onTouchStart={handleHoverIn}
+            onTouchEnd={handleHoverOut}
             onMouseEnter={handleHoverIn}
             onMouseLeave={handleHoverOut}
             whileHover={{
