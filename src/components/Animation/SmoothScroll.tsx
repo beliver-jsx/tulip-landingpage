@@ -38,58 +38,58 @@ const SmoothScroll = ({ children }: any) => {
 
 
     // Cursor Placement & Animation
-    const cursor = useAppSelector(store => store.deafult.cursorState)
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const handleMouseMove = (event: any) => {
-        setMousePos({ x: event.clientX, y: event.clientY });
-    };
-    useEffect(() => {
-        document.addEventListener('mousemove', handleMouseMove);
-        return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
+    // const cursor = useAppSelector(store => store.deafult.cursorState)
+    // const [mousePos, setMousePos] = useState({ x: -100, y: 0 });
+    // const handleMouseMove = (event: any) => {
+    //     setMousePos({ x: event.clientX, y: event.clientY });
+    // };
+    // useEffect(() => {
+    //     document.addEventListener('mousemove', handleMouseMove);
+    //     return () => {
+    //         document.removeEventListener('mousemove', handleMouseMove);
+    //     };
+    // }, []);
 
 
 
     // mouse varients
-    const varients = {
-        focused: {
-            zIndex: 1,
-            width: '60px',
-            height: '60px',
-            top: mousePos.y + -30,
-            left: mousePos.x + -30,
-            background: '#4b6dc17e',
-            transition: {
-                type: "ease",
-                mass: 0.17
-            }
-        },
-        def: {
-            zIndex: 1,
-            width: '15px',
-            height: '15px',
-            top: mousePos.y + -7.5,
-            left: mousePos.x + -7.5,
-            background: '#4b6cc1',
-            transition: {
-                type: "ease",
-                mass: 0.17
-            }
-        }
-    }
+    // const varients = {
+    //     focused: {
+    //         zIndex: 1,
+    //         width: '60px',
+    //         height: '60px',
+    //         top: mousePos.y + -30,
+    //         left: mousePos.x + -30,
+    //         background: '#4b6dc17e',
+    //         transition: {
+    //             type: "ease",
+    //             mass: 0.17
+    //         }
+    //     },
+    //     def: {
+    //         zIndex: 1,
+    //         width: '15px',
+    //         height: '15px',
+    //         top: mousePos.y + -7.5,
+    //         left: mousePos.x + -7.5,
+    //         background: '#4b6cc1',
+    //         transition: {
+    //             type: "ease",
+    //             mass: 0.17
+    //         }
+    //     }
+    // }
 
 
     return (
         <>
-            {!isMobile ? (
+            {/* {!isMobile ? (
                 <motion.div
                     style={{ pointerEvents: 'none' }}
                     className="circle z-40 fixed rounded-full"
                     animate={cursor == 'default' ? varients.def : varients.focused}>
                 </motion.div>
-            ) : null}
+            ) : null} */}
 
             <motion.div
                 ref={scrollRef}
