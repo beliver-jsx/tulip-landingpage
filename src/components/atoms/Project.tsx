@@ -33,18 +33,18 @@ const ProjectListItem: React.FC<Props> = ({ index, item }) => {
 
     const transitions = {
         text: {
-            delay: index == 0 ? 10 : (index + 10) * .1,
+            delay: index == 0 ? 1 : (index + 10) * .1,
             duration: 1.8,
             ease: [0.87, 0, 0.13, 1]
         },
         line: {
-            delay: index == 0 ? 10 : (index + 10) * .1,
+            delay: index == 0 ? 1 : (index + 10) * .1,
             duration: 1.8,
             ease: [0.87, 0, 0.13, 1]
         },
 
         header: {
-            delay: index == 0 ? 10 : (index + 10) * .1,
+            delay: index == 0 ? 1 : (index + 10) * .1,
         }
     }
 
@@ -86,7 +86,7 @@ const ProjectListItem: React.FC<Props> = ({ index, item }) => {
                 animate="animate"
                 style={{ height: '1px' }}
                 transition={transitions.line}
-                className="bg-black">&nbsp;</motion.div>
+                className="bg-black dark:bg-white">&nbsp;</motion.div>
 
             <motion.div
                 animate="animate"
