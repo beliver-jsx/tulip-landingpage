@@ -42,7 +42,7 @@ const LargeTextWithImages: React.FC<Props> = ({
             onClick={handleClick}
             onMouseEnter={handleInnerMouseEnter}
             onMouseLeave={handleInnerMouseLeave}
-            className='py-[5rem] border-y-[1px] border-gray'>
+            className='py-[5rem] border-y-[1px] border-gray cursor-pointer'>
             <Parallax className="mt-[5rem] mb-[1rem]" offset={50}>
                 <motion.div className='flex relative'>
                     <motion.h3 className=' tracking-wider 

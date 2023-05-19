@@ -34,8 +34,8 @@ export default function Home() {
                         <br />
                         <br />
                         <div className='flex gap-10'>
-                            <TrackingText text="Twitter" className='text-lg text-gray' />
-                            <TrackingText text="Github" className='text-lg text-gray' />
+                            <TrackingText text="Twitter" className='text-lg text-gray cursor-pointer' />
+                            <TrackingText text="Github" className='text-lg text-gray cursor-pointer' />
                         </div>
                     </p>
                 </section>
@@ -76,8 +76,8 @@ export default function Home() {
                     </div>
                     <div>
                         <p className='text-lg mb-10'>This website is developed using React JS with Next JS. Inspirations of this website are Ronnie Feng and Hugo Bazin.</p>
-                        <p className='text-lg mb-10'>Font used is <TrackingText text='Manrope' className='inline !text-gray' /> </p>
-                        <p className='text-lg mb-10'>Animations are powered by <TrackingText text='Framer Motion' className='inline !text-gray' />
+                        <p className='text-lg mb-10'>Font used is <TrackingText text='Manrope' className='inline !text-gray cursor-pointer' /> </p>
+                        <p className='text-lg mb-10'>Animations are powered by <TrackingText text='Framer Motion' className='inline !text-gray cursor-pointer' />
                         </p>
                     </div>
                 </section>

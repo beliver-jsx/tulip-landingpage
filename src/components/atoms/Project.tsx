@@ -77,7 +77,8 @@ const ProjectListItem: React.FC<Props> = ({ index, item }) => {
         <motion.div
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>
+            onMouseLeave={handleMouseLeave}
+            className="cursor-pointer">
 
             <motion.div
                 variants={line}
