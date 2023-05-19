@@ -1,9 +1,8 @@
 import Skew from "../Skew"
-import { useAppSelector } from "@/store/hooks"
 import ResizeObserver from "resize-observer-polyfill"
 import useMobileDetect from "@/hooks/useMobileDetect"
 import { useTransform, useSpring, motion, useScroll } from "framer-motion"
-import React, { useRef, useState, useEffect, useCallback, useLayoutEffect } from "react"
+import React, { useRef, useState, useCallback, useLayoutEffect } from "react"
 
 const SmoothScroll = ({ children }: any) => {
     // scroll container
@@ -36,61 +35,8 @@ const SmoothScroll = ({ children }: any) => {
     const physics = { damping: 40, stiffness: 200, }  // easing of smooth scroll
     const spring = useSpring(transform, physics) // apply easing to the negative scroll value
 
-
-    // Cursor Placement & Animation
-    // const cursor = useAppSelector(store => store.deafult.cursorState)
-    // const [mousePos, setMousePos] = useState({ x: -100, y: 0 });
-    // const handleMouseMove = (event: any) => {
-    //     setMousePos({ x: event.clientX, y: event.clientY });
-    // };
-    // useEffect(() => {
-    //     document.addEventListener('mousemove', handleMouseMove);
-    //     return () => {
-    //         document.removeEventListener('mousemove', handleMouseMove);
-    //     };
-    // }, []);
-
-
-
-    // mouse varients
-    // const varients = {
-    //     focused: {
-    //         zIndex: 1,
-    //         width: '60px',
-    //         height: '60px',
-    //         top: mousePos.y + -30,
-    //         left: mousePos.x + -30,
-    //         background: '#4b6dc17e',
-    //         transition: {
-    //             type: "ease",
-    //             mass: 0.17
-    //         }
-    //     },
-    //     def: {
-    //         zIndex: 1,
-    //         width: '15px',
-    //         height: '15px',
-    //         top: mousePos.y + -7.5,
-    //         left: mousePos.x + -7.5,
-    //         background: '#4b6cc1',
-    //         transition: {
-    //             type: "ease",
-    //             mass: 0.17
-    //         }
-    //     }
-    // }
-
-
     return (
         <>
-            {/* {!isMobile ? (
-                <motion.div
-                    style={{ pointerEvents: 'none' }}
-                    className="circle z-40 fixed rounded-full"
-                    animate={cursor == 'default' ? varients.def : varients.focused}>
-                </motion.div>
-            ) : null} */}
-
             <motion.div
                 ref={scrollRef}
                 style={{ y: isMobile ? transform : spring }}

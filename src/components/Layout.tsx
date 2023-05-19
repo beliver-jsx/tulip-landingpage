@@ -132,7 +132,8 @@ const Layout = ({ children }: any) => {
                                 style={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}
                                 initial={{ opacity: 1 }}>
-                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>{random_text}</p>
+                                <p className='4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize
+                                '>random_text</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -145,23 +146,23 @@ const Layout = ({ children }: any) => {
                             isMenuVisible,
                             setMenuVisible
                         }} />
-                        <AnimatePresence mode='wait'>
+                        {/* <AnimatePresence mode='wait'>
                             <motion.div
                                 key={router.route}
                                 initial="initial"
                                 animate="animate"
                                 exit="exit"
-                                transition={{ duration: .3 }}
+                                transition={{ duration: 0 }}
                                 variants={{
                                     initial: { opacity: 0 },
                                     animate: { opacity: 1 },
                                     exit: { opacity: 0 },
-                                }}>
-                                <SmoothScroll>
-                                    <motion.div>{children}</motion.div>
-                                </SmoothScroll>
-                            </motion.div>
-                        </AnimatePresence>
+                                }}> */}
+                        <SmoothScroll>
+                            <motion.div>{children}</motion.div>
+                        </SmoothScroll>
+                        {/* </motion.div>
+                        </AnimatePresence> */}
 
                     </div>)}
             </AnimatePresence>
@@ -181,10 +182,8 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
                 height: 920,
                 maxHeight: '920px',
                 transition: {
-                    type: "spring",
-                    damping: 20,
-                    mass: 0.75,
-                    stiffness: 100,
+                    duration: 1,
+                    ease: [0.87, 0, 0.13, 1]
                 }
             }}
 
@@ -192,10 +191,8 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
                 height: 0,
                 maxHeight: '1px',
                 transition: {
-                    type: "spring",
-                    damping: 20,
-                    mass: 0.75,
-                    stiffness: 100,
+                    duration: 1,
+                    ease: [0.87, 0, 0.13, 1],
                     delay: 2
                 }
             }}
@@ -206,7 +203,7 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
                     style={{ height: 1, width: '0%' }}
                     className='bg-black dark:bg-white'
                     animate={{ width: '100%', transition: { delay: 1, duration: .6 } }}
-                    exit={{ width: '0%', transition: { delay: 1, duration: .6, ease: [1, 1, .70, .90], } }}
+                    exit={{ width: '0%', transition: { delay: 1.3, duration: .6, ease: [0.87, 0, 0.13, 1], } }}
                 >&nbsp;</motion.div>
 
                 <motion.div className='mt-5'>
@@ -256,14 +253,14 @@ const Item = ({ setMenuVisible, isMenuVisible, showDelay, hideDelay, text, activ
                 animate={{
                     y: "0%", opacity: 1, transition: {
                         duration: 1,
-                        ease: [0.16, 1, 0.3, 1],
+                        ease: [0.87, 0, 0.13, 1],
                         delay: showDelay,
                     }
                 }}
                 exit={{
                     y: "100%", opacity: 0, transition: {
                         duration: 1,
-                        ease: [0.16, 1, 0.3, 1],
+                        ease: [0.87, 0, 0.13, 1],
                         delay: hideDelay,
                     }
                 }}
