@@ -3,7 +3,7 @@ interface props {
     classNames?: string
 }
 import { motion } from "framer-motion";
-
+import { h2 } from "../../../responsive.config";
 const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
     return (
         <motion.div
@@ -24,7 +24,7 @@ const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
                             }}
 
                             initial={{ opacity: 1 }}>
-                            <h1 className="4xl:text-xl 3xl:text-[112px] 2xl:text-[112px] xl:text-[96px] lg:text-[96px] md:text-[80px] text-[52px] font-[800]">{line}</h1>
+                            <h1 className={`" 4xl:text-h2-4xl 3xl:text-h2-3xl 2xl:text-h2-2xl xl:text-h2-xl lg:text-h2-lg md:text-h2-md text-h2-sm font-extrabold`}>{line}</h1>
                         </motion.div>
 
                     </motion.div>

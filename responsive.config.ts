@@ -1,0 +1,1 @@
+export const h2 = "4xl:text-[8rem] 3xl:text-[8rem] 2xl:text-[10rem] xl:text-[10rem] lg:text-[10rem] md:text-[10rem] text-[10rem]"

@@ -28,12 +28,147 @@ module.exports = {
     extend: {
 
       colors: {
-
         blue: '#4b6cc1',
         gray: 'gray'
       },
 
       fontSize: {
+
+
+
+        // h1
+
+        'h1-4xl': ['13rem', {
+          lineHeight: '15rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h1-3xl': ['10rem', {
+          lineHeight: '12rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h1-2xl': ['10rem', {
+          lineHeight: '12rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h1-xl': ['6rem', {
+          lineHeight: '8rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h1-lg': ['6rem', {
+          lineHeight: '8rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h1-md': ['3rem', {
+          lineHeight: '5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h1-sm': ['3rem', {
+          lineHeight: '5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        // h2
+        'h2-4xl': ['9rem', {
+          lineHeight: '11rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h2-3xl': ['7rem', {
+          lineHeight: '9rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h2-2xl': ['7rem', {
+          lineHeight: '9rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h2-xl': ['6rem', {
+          lineHeight: '8rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h2-lg': ['6rem', {
+          lineHeight: '8rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h2-md': ['5rem', {
+          lineHeight: '7rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h2-sm': ['4.25rem', {
+          lineHeight: '6.25rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        // h3
+        'h3-4xl': ['5rem', {
+          lineHeight: '7rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h3-3xl': ['5rem', {
+          lineHeight: '7rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h3-2xl': ['5rem', {
+          lineHeight: '7rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h3-xl': ['5rem', {
+          lineHeight: '7rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h3-lg': ['3rem', {
+          lineHeight: '5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h3-md': ['2.5rem', {
+          lineHeight: '2.5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h3-sm': ['2.5rem', {
+          lineHeight: '4.5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+
+
+
 
         'sm': ['14px', {
           lineHeight: '20px',

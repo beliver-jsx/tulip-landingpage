@@ -1,5 +1,4 @@
 
-
 interface Props {
     index: number,
     item: any
@@ -101,17 +100,29 @@ const ProjectListItem: React.FC<Props> = ({ index, item }) => {
             <section
                 onMouseEnter={handleInnerMouseEnter}
                 onMouseLeave={handleInnerMouseLeave} className="flex" >
-                <motion.div className="overflow-y-hidden h-[100px] mb-4">
+                <motion.div className="overflow-y-hidden h-[100%] mb-4">
                     <motion.h1
                         exit={"exit"}
                         variants={text}
                         initial="initial"
                         animate="animate"
                         transition={transitions.text}
-                        className="text-elg font-extrabold capitalize relative">
+                        className={` 
+                        4xl:text-h3-4xl
+                        3xl:text-h3-3xl
+                        2xl:text-h3-2xl
+                        xl:text-h3-xl
+                        lg:text-h3-lg
+                        md:text-h3-md
+                        text-h3-sm
+
+
+                        
+            
+                        !font-extrabold capitalize relative`}>
 
                         <motion.span animate={simpleTextControl} className="tracking-wider">{item.name}</motion.span>
-                        <motion.span animate={OutlineTextControl} className="left-0 absolute outline-text  tracking-wider">{item.name}</motion.span>
+                        <motion.span animate={OutlineTextControl} className="left-0 top-0 absolute outline-text  tracking-wider">{item.name}</motion.span>
 
                     </motion.h1>
                 </motion.div>
