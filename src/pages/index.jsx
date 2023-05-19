@@ -18,7 +18,7 @@ const Home = () => {
   }
   return (
     <div>
-      <TextRevealAnimation
+      <TextRevealAnimation delay={0}
         classNames='lg:mt-[10rem] mt-[5rem]'
         lines={[
           "Hello! I'm",

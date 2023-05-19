@@ -64,7 +64,7 @@ const Layout = ({ children }: any) => {
 
 
 
-    // Cursor Follow
+    // Cursor Followv Animation
 
     const _cursor = useAppSelector(store => store.deafult.cursorState)
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -151,6 +151,7 @@ const Layout = ({ children }: any) => {
                                 initial="initial"
                                 animate="animate"
                                 exit="exit"
+                                transition={{ duration: .3 }}
                                 variants={{
                                     initial: { opacity: 0 },
                                     animate: { opacity: 1 },
