@@ -1,28 +1,19 @@
 import { useRouter } from "next/router";
-import { LgMenuBtn } from "./buttons";
-import { useState, useEffect } from "react";
-
+import { MenuButton as Button } from "./buttons";
 const Menu = () => {
-    const { push, pathname } = useRouter();
-
-
+    const router = useRouter();
+    const { pathname, push } = router
     return (
         <div className="hidden gap-y-3.5 lg:grid">
-            {pathname == '/' ? < LgMenuBtn
+            <Button
                 click={() => {
                     push("/");
                 }}
                 text={"Home"}
-                active={true}
-            /> : < LgMenuBtn
-                click={() => {
-                    push("/");
-                }}
-                text={"Home"}
-                active={false}
-            />}
+                active={pathname == '/'}
+            />
 
-            <LgMenuBtn
+            <Button
                 click={() => {
                     push("/about");
                 }}
@@ -30,7 +21,7 @@ const Menu = () => {
                 active={pathname === "/about"}
             />
 
-            <LgMenuBtn
+            <Button
                 click={() => {
                     push("/projects");
                 }}
@@ -38,7 +29,7 @@ const Menu = () => {
                 active={pathname === "/projects"}
             />
 
-            <LgMenuBtn
+            <Button
                 click={() => {
                     window.location.href = "mailto:someone@example.com";
                 }}
@@ -50,3 +41,4 @@ const Menu = () => {
 }
 
 export default Menu
+
