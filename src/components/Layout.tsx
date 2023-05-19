@@ -80,7 +80,7 @@ const Layout = ({ children }: any) => {
                                 style={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}
                                 initial={{ opacity: 1 }}>
-                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>The paragraph</p>
+                                <p className='text-elg dark:text-white font-bold first-letter:capitalize '>{getRandomText()}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
