@@ -166,6 +166,12 @@ module.exports = {
           fontWeight: '800',
         }],
 
+        'h3-xs': ['2rem', {
+          lineHeight: '4.5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
 
         // h4 
         'h4-4xl': ['4.125rem', {

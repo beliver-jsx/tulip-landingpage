@@ -81,13 +81,13 @@ const Layout = ({ children }: any) => {
                                 animate={loadingTextAnimationControls}
                                 initial={{ opacity: 1 }}>
                                 <p className=' 4xl:text-h3-4xl
-                        3xl:text-h2-3xl
-                        2xl:text-h2-2xl
-                        xl:text-h2-xl
-                        lg:text-h2-lg
-                        md:text-h2-md
-                        text-h2-sm
-                        !font-extrabold dark:text-white  first-letter:capitalize '>The paragraph</p>
+                        3xl:text-h3-3xl
+                        2xl:text-h3-2xl
+                        xl:text-h3-xl
+                        lg:text-h3-lg
+                        md:text-h3-md
+                        text-h3-xs
+                        !font-bold dark:text-white  first-letter:capitalize '>{getRandomText()}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
