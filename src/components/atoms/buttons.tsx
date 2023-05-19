@@ -7,7 +7,6 @@ interface props {
 import { motion } from 'framer-motion'
 import { cursor } from "@/store/slices";
 import { useAppDispatch } from "@/store/hooks";
-
 export const LgMenuBtn: React.FC<props> = ({ click, text, active }) => {
     const dispatch = useAppDispatch()
     const handleFocused = () => {
@@ -23,7 +22,9 @@ export const LgMenuBtn: React.FC<props> = ({ click, text, active }) => {
             onHoverEnd={handleDefault}
             onHoverStart={handleFocused}
             style={active ? hoverStyle : {}}
-            className="text-left text-md font-semibold capitalize w-max hover:tracking-[5px] hover:text-blue cursor-pointer">{text}</motion.button>
+            whileHover={hoverStyle}
+            className="text-left text-md font-semibold capitalize w-max  cursor-pointer text-black dark:text-white"
+        >{text}</motion.button>
     )
 }
 

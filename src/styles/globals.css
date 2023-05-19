@@ -21,6 +21,8 @@
 }
 
 body {
+
+  /* transition: color 1s; */
   color: #000;
   background: #fff;
   transition: all .5s;
@@ -78,16 +80,6 @@ body {
     height: 20px;
     border-radius: 40px;
   }
-
-  /* html::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-} */
-
 
   .outline-text {
     color: var(--primary-col);

@@ -1,50 +1,69 @@
-import { useState } from 'react'
-import { cursor } from '@/store/slices'
-import { useRouter } from 'next/router';
-import { useAppDispatch } from '@/store/hooks'
-import RevealAnimation from '../Animation/RevealAnimation';
-import { motion, AnimatePresence, useAnimationControls } from 'framer-motion'
-import { useTheme } from 'next-themes';
 
-const LineVarient = {
-    hidden: {
-        width: '0%'
-    },
-    visible: {
-        width: '100%',
-        transition: {
-            duration: 0.5 // Set the duration of the animation
+
+interface Props {
+    index: number,
+    item: any
+}
+
+import { useState } from "react"
+import { useRouter } from "next/router"
+import { cursor } from "@/store/slices"
+import { useAppDispatch } from "@/store/hooks"
+import { motion, AnimatePresence, useAnimationControls } from 'framer-motion'
+
+
+
+const ProjectListItem: React.FC<Props> = ({ index, item }) => {
+
+    const text = {
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: "-100%" },
+        initial: { opacity: 0, y: "100%" }
+    }
+
+    const line = {
+        initial: { width: '0%' },
+        animate: { width: '100%' },
+    }
+
+    const header = {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+    }
+
+    const transitions = {
+        text: {
+            delay: index == 0 ? 10 : (index + 10) * .1,
+            duration: 1.8,
+            ease: [0.87, 0, 0.13, 1]
+        },
+        line: {
+            delay: index == 0 ? 10 : (index + 10) * .1,
+            duration: 1.8,
+            ease: [0.87, 0, 0.13, 1]
+        },
+
+        header: {
+            delay: index == 0 ? 10 : (index + 10) * .1,
         }
     }
-};
-
-
-
-const ProjectListItem = ({ index, item }: any) => {
 
     const { push } = useRouter()
-    const { theme, setTheme } = useTheme()
     const dispatch = useAppDispatch()
     const [visible, setVisible] = useState(false)
 
-    //Outer Layer Handler
     const handleMouseEnter = () => {
         setVisible(true)
     }
     const handleMouseLeave = () => {
         setVisible(!true)
     }
-
     const handleClick = () => {
         push(`projects/${item.name}`)
     }
 
-
-    // Inner Layer Text Controls
     const simpleTextControl = useAnimationControls()
     const OutlineTextControl = useAnimationControls()
-
-    // Inner Layer Handlers
 
     const handleInnerMouseEnter = () => {
         dispatch(cursor('focused'))
@@ -56,42 +75,47 @@ const ProjectListItem = ({ index, item }: any) => {
     }
 
     return (
-        <motion.li
-            id='outer-layer'
+        <motion.div
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className='cursor-pointer overflow-hidden mb-6 z-10'>
+            onMouseLeave={handleMouseLeave}>
 
-            <div>
-                <motion.div
-                    variants={LineVarient}
-                    className='relative'
-                    style={{ height: '1px', background: theme == 'light' ? 'gray' : 'white' }}>
-                </motion.div>
-            </div>
+            <motion.div
+                variants={line}
+                initial="initial"
+                animate="animate"
+                style={{ height: '1px' }}
+                transition={transitions.line}
+                className="bg-black">&nbsp;</motion.div>
 
-            <div className='flex justify-between text-gray mt-3'>
-                <span>0{index + 1}</span>
-                <span>{item.year}</span>
-            </div>
+            <motion.div
+                animate="animate"
+                initial="initial"
+                variants={header}
+                transition={transitions.header}
+                className="flex items-center justify-between py-3">
+                <span className="text-gray font-medium">0{index + 1}</span>
+                <span className="text-gray font-medium">{item.year}</span>
+            </motion.div>
 
-            <div
-                id='inner-layer'
-                className='flex justify-between'
+            <section
                 onMouseEnter={handleInnerMouseEnter}
-                onMouseLeave={handleInnerMouseLeave}>
-                <RevealAnimation>
-                    <motion.div
-                        className='flex relative'>
-                        <motion.h3
-                            className=' capitalize tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-[1000]'
-                            animate={simpleTextControl}>{item.name}</motion.h3>
-                        <motion.h3
-                            className={`absolute outline-text  tracking-wider 4xl:text-elg 3xl:text-[75px] 2xl:text-[75px] xl:text-[70px] lg:text-[70px] md:text-[60px] text-[40px] font-[1000] capitalize`}
-                            animate={OutlineTextControl}>{item.name}</motion.h3>
-                    </motion.div>
-                </RevealAnimation>
+                onMouseLeave={handleInnerMouseLeave} className="flex" >
+                <motion.div className="overflow-y-hidden h-[100px] mb-4">
+                    <motion.h1
+                        exit={"exit"}
+                        variants={text}
+                        initial="initial"
+                        animate="animate"
+                        transition={transitions.text}
+                        className="text-elg font-extrabold capitalize relative">
+
+                        <motion.span animate={simpleTextControl} className="tracking-wider">{item.name}</motion.span>
+                        <motion.span animate={OutlineTextControl} className="left-0 absolute outline-text  tracking-wider">{item.name}</motion.span>
+
+                    </motion.h1>
+                </motion.div>
+
 
                 <AnimatePresence>
                     {visible && (
@@ -103,18 +127,14 @@ const ProjectListItem = ({ index, item }: any) => {
                             transition={{ duration: .6 }}>
                             <img
                                 src={item.image}
-                                className='w-[600px] bg-red-500 h-[400px] absolute right-0 -z-1' />
+                                className='w-[650px] bg-red-500 h-[400px] absolute right-0 -z-1' />
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
-        </motion.li>
+            </section>
+
+        </motion.div>
     )
 }
 
 export default ProjectListItem
-
-
-
-
-

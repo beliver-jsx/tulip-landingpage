@@ -1,4 +1,3 @@
-// smmoth aniamation while theme change 
 import { motion } from 'framer-motion'
 
 const HorizontalLine = () => (

@@ -1,3 +1,4 @@
+import Menu from './Menu'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
@@ -5,11 +6,8 @@ import { hover_tracking_and_bold } from '@/animation'
 const DynamicToggler = dynamic(() => import('../ThemeToggle'),
     { ssr: false })
 
-import { LgMenuBtn } from './buttons'
-import { useRouter } from 'next/router'
 
 const MenuControls = ({ handleDefault, handleFocused, isMenuVisible, setMenuVisible }: any) => {
-    const { push, pathname } = useRouter()
     return (
         (
             <div className="w-full lg:h-full fixed lg:z-0 z-[999999]  top-0 left-0 p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] grid grid-cols-2">
@@ -29,46 +27,13 @@ const MenuControls = ({ handleDefault, handleFocused, isMenuVisible, setMenuVisi
                 </div>
 
                 <div className="hidden lg:flex items-end w-full h-full ">
-
-                    <div className="hidden gap-y-3.5 lg:grid">
-                        <LgMenuBtn
-                            click={() => {
-                                push("/");
-                            }}
-                            text={"Home"}
-                            active={pathname === "/"}
-                        />
-
-                        <LgMenuBtn
-                            click={() => {
-                                push("/about");
-                            }}
-                            text={"About"}
-                            active={pathname === "/about"}
-                        />
-
-                        <LgMenuBtn
-                            click={() => {
-                                push("/projects");
-                            }}
-                            text={"Projects"}
-                            active={pathname === "/projects"}
-                        />
-
-                        <LgMenuBtn
-                            click={() => {
-                                window.location.href = "mailto:someone@example.com";
-                            }}
-                            text={"Contact"}
-                            active={false}
-                        />
-                    </div>
-
+                    <Menu />
                 </div>
 
                 <div className="hidden lg:flex items-end justify-end w-full h-full ">
                     <Link href={'/'}>
                         <motion.h5
+                            onClick={() => { window.location.href = "mailto:someone @example.com" }}
                             onHoverEnd={handleDefault}
                             onHoverStart={handleFocused}
                             className=" cursor-pointer text-md hidden lg:block"

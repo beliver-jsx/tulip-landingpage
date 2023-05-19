@@ -1,12 +1,12 @@
-import ThemeToggle from './ThemeToggle';
 import { useRouter } from 'next/router';
 import { cursor } from "@/store/slices";
 import { useState, useEffect } from 'react'
 import { useAppDispatch } from "@/store/hooks";
 import MenuControls from "./atoms/MenuControls";
-import SmoothScroll from "./Animation/SSWrapper";
+import SmoothScroll from "./Animation/SmoothScroll";
 import HorizontalLine from "./atoms/HorizontalLines";
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion'
+
 
 const getRandomText = () => {
     function getDayName() {
@@ -40,14 +40,14 @@ const Layout = ({ children }: any) => {
 
     useEffect(() => {
         loadingTextAnimationControls.start({ y: "0%", opacity: 1 }, {
-            duration: .8,
-            ease: [0.25, 0.1, 0.25, 1],
+            duration: 1,
+            ease: [0.87, 0, 0.13, 1],
         })
 
         const timer = setTimeout(() => {
             loadingTextAnimationControls.start({ y: "-110%", opacity: 0 }, {
-                duration: .8,
-                ease: [0.25, 0.1, 0.25, 1],
+                duration: 1,
+                ease: [0.87, 0, 0.13, 1],
             })
 
             setTimeout(() => {
@@ -103,9 +103,7 @@ const Layout = ({ children }: any) => {
                                     initial: { opacity: 0 },
                                     animate: { opacity: 1 },
                                     exit: { opacity: 0 },
-                                }}
-
-                            >
+                                }}>
                                 <SmoothScroll>
                                     <motion.div>{children}</motion.div>
                                 </SmoothScroll>
@@ -127,24 +125,41 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
     const { pathname } = useRouter()
     return (
         <motion.div
-            style={{ height: "0px" }}
-            animate={{ height: '100%', transition: { duration: 1 } }}
-            exit={{ height: "0%", transition: { duration: 1, delay: 2 } }}
+            style={{ height: '0px', maxHeight: '1px' }}
 
-            className="bg-[#ececec] dark:bg-black w-full fixed lg:z-0 z-50  top-0 left-0 p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] pt-[6rem]"
-        >
-            <motion.div className='mt-[10rem]'>
+            animate={{
+                height: 920,
+                maxHeight: '920px',
+                transition: {
+                    type: "spring",
+                    damping: 20,
+                    mass: 0.75,
+                    stiffness: 100,
+                }
+            }}
+
+            exit={{
+                height: 0,
+                maxHeight: '1px',
+                transition: {
+                    type: "spring",
+                    damping: 20,
+                    mass: 0.75,
+                    stiffness: 100,
+                    delay: 2
+                }
+            }}
+            className="bg-[#ececec] dark:bg-black w-full fixed lg:z-0 z-50 top-0 left-0">
+            <motion.div className='mt-[15rem] p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] pt-[6rem]'>
 
                 <motion.div
-                    className='bg-black'
-                    style={{ height: 2, width: '0%' }}
+                    style={{ height: 1, width: '0%' }}
+                    className='bg-black dark:bg-white'
                     animate={{ width: '100%', transition: { delay: 1, duration: .6 } }}
                     exit={{ width: '0%', transition: { delay: 1, duration: .6, ease: [1, 1, .70, .90], } }}
                 >&nbsp;</motion.div>
 
                 <motion.div className='mt-5'>
-
-
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: .8, hideDelay: 1.1, text: 'Home', active: pathname === '/', path: '/' }} />
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: .9, hideDelay: 1, text: 'About', active: pathname === '/about', path: '/about' }} />
                     <Item {...{ setMenuVisible, isMenuVisible, showDelay: 1, hideDelay: .9, text: 'Projects', active: pathname === '/projects', path: '/projects' }} />
@@ -204,7 +219,12 @@ const Item = ({ setMenuVisible, isMenuVisible, showDelay, hideDelay, text, activ
                 }}
                 initial={{ y: "100%", opacity: 0 }}
             >
-                <motion.h1 animate={animation} style={active ? { color: '#4b6cc1' } : undefined} className="text-[2.5rem] font-semibold">{text}</motion.h1>
+
+
+                <motion.h1
+                    animate={animation}
+                    style={active ? { color: '#4b6cc1', fontWeight: '800' } : undefined}
+                    className="text-[2.5rem] tracking-normal font-medium hover:tracking-widest transition-all duration-500 hover:text-blue hover:font-[800]">{text}</motion.h1>
             </motion.div>
         </motion.div >
     )
@@ -235,14 +255,29 @@ const Toggle = () => {
     };
 
     return (
-        <div className=' flex'>
-
+        <motion.div
+            animate={{
+                opacity: 1, transition: {
+                    duration: 1,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: 1.1,
+                }
+            }}
+            exit={{
+                opacity: 0, transition: {
+                    duration: 1,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: .8,
+                }
+            }}
+            initial={{ opacity: 0 }}
+            className=' flex mt-5'>
             <div
                 onMouseEnter={handleFocused}
                 onMouseLeave={handleDefault}
                 className='flex justify-end'>
 
-                <div className="switch"
+                <div className="switch bg-white dark:bg-black"
                     onClick={toggleSwitch}
                     data-isOn={theme === 'dark'}>
                     <motion.div
@@ -252,6 +287,6 @@ const Toggle = () => {
                 </div>
 
             </div>
-        </div>
+        </motion.div>
     )
 }

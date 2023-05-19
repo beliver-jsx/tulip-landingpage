@@ -15,11 +15,11 @@ const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
                         <motion.div
                             style={{ y: 300, opacity: 0 }}
                             animate={{
-                                y: 0, opacity: 1, transition: {
+                                y: 0, opacity: 1,
+                                transition: {
                                     delay: index == 0 ? 0 : (index + 0.2) * 0.1,
-                                    type: 'spring',
-                                    stiffness: 80,
-                                    damping: 25,
+                                    duration: 2,
+                                    ease: [0.87, 0, 0.13, 1]
                                 }
                             }}
 
