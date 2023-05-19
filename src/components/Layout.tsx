@@ -77,7 +77,7 @@ const Layout = ({ children }: any) => {
                                 style={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}
                                 initial={{ opacity: 1 }}>
-                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>gettings it ready</p>
+                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>{getRandomText()}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -115,9 +115,6 @@ const Layout = ({ children }: any) => {
 }
 export default Layout
 
-
-
-
 const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
     const { pathname } = useRouter()
     return (
@@ -146,7 +143,7 @@ const MobileMenu = ({ isMenuVisible, setMenuVisible }: any) => {
                     delay: 2
                 }
             }}
-            className="bg-[#ececec] dark:bg-black w-full fixed lg:z-0 z-50 top-0 left-0">
+            className="bg-[#ececec] dark:bg-black w-full fixed lg:z-0 z-50 top-0 left-0  lg:hidden block">
             <motion.div className='md:mt-[15rem] mt-[5rem]  p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] pt-[6rem]'>
 
                 <motion.div
