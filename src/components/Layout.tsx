@@ -1,13 +1,11 @@
 import { useRouter } from 'next/router';
 import { cursor } from "@/store/slices";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import MenuControls from "./atoms/MenuControls";
 import SmoothScroll from "./Animation/SmoothScroll";
 import HorizontalLine from "./atoms/HorizontalLines";
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion'
-
-
 
 const getRandomText = () => {
     function getDayName() {
@@ -30,6 +28,8 @@ const Layout = ({ children }: any) => {
     const [AnimeState, setAnimeState] = useState(true)
     const [isMenuVisible, setMenuVisible] = useState(!true)
     const loadingTextAnimationControls = useAnimationControls()
+
+    const random_text = useMemo(() => getRandomText(), [])
 
     const handleFocused = () => {
         dispatch(cursor('focused'))
@@ -109,7 +109,6 @@ const Layout = ({ children }: any) => {
 
     return (
         <>
-
             {!isMobile && (
                 <motion.div
                     style={{ pointerEvents: 'none' }}
@@ -133,7 +132,7 @@ const Layout = ({ children }: any) => {
                                 style={{ y: "100%", opacity: 0 }}
                                 animate={loadingTextAnimationControls}
                                 initial={{ opacity: 1 }}>
-                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>{getRandomText()}</p>
+                                <p className=' 4xl:text-h3-4xl 3xl:text-h3-3xl 2xl:text-h3-2xl xl:text-h3-xl lg:text-h3-lg md:text-h3-md text-h3-xs !font-bold dark:text-white text-black first-letter:capitalize'>{random_text}</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>

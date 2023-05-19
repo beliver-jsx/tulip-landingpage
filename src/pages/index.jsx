@@ -18,30 +18,16 @@ const Home = () => {
   }
   return (
     <div>
-      <section className='md:block hidden'>
-        <TextRevealAnimation
-          classNames='lg:mt-[10rem] mt-[5rem]'
-          lines={[
-            "Hello! I'm",
-            'Richard William,',
-            'a Philippine - ',
-            'based front -',
-            'end web',
-            'developer.']} />
-      </section>
+      <TextRevealAnimation
+        classNames='lg:mt-[10rem] mt-[5rem]'
+        lines={[
+          "Hello! I'm",
+          'Richard William,',
+          'a Philippine - ',
+          'based front -',
+          'end web',
+          'developer.']} />
 
-      <section className='md:hidden block'>
-        <TextRevealAnimation
-          classNames='lg:mt-[10rem] mt-[5rem]'
-          lines={[
-            "Hello! I'm",
-            'Richard,',
-            'William, a',
-            'Philippine -',
-            'based front ',
-            '- end web',
-            'developer.']} />
-      </section>
 
       <section className='lg:mt-[300px] mt-[5rem]  lg:w-[50%] ml-auto mb-[5rem]'>
         <p className='lg:text-lg text-smd font-medium '>I'm a 19-year-old who's passionate about creating interactive <br /> websites that bring an awesome experience to the users. Currently <br /> in 1st year college taking up computer science, but accepting <br /> freelance projects!</p>
