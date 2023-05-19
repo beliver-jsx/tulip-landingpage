@@ -94,7 +94,23 @@ const SmoothScroll = ({ children }: any) => {
             <motion.div
                 ref={scrollRef}
                 style={{ y: isMobile ? transform : spring }}
-                className="fixed 4xl:w-[calc(100%-600px)] 3xl:w-[calc(100%-500px)] 2xl:w-[calc(100%-400px)] xl:w-[calc(100%-352px)] lg:w-[calc(100%-96px)] md:w-[calc(100%-96px)] w-[calc(100%-48px)] 4xl:left-[300px] 3xl:left-[250px] 2xl:left-[200px] xl:left-[176px] lg:left-[48px] md:left-[48px] left-[24px] top-0 h-max ">
+                className="fixed 
+                4xl:w-[calc(100%-600px)]
+                 3xl:w-[calc(100%-500px)]
+                  2xl:w-[calc(100%-400px)]
+                   xl:w-[calc(100%-352px)]
+                    lg:w-[calc(100%-352px)]
+                     md:w-[calc(100%-96px)]
+                      w-[calc(100%-48px)]
+                       4xl:left-[300px]
+                        3xl:left-[250px]
+                         2xl:left-[200px]
+                          xl:left-[176px]
+                           lg:left-[176px]
+                            md:left-[48px] 
+                            left-[24px] top-0 h-max
+
+                            ">
                 {!isMobile ? <Skew>{children}</Skew> : children}
             </motion.div>
             <div style={{ height: pageHeight }} />
