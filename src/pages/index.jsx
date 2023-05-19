@@ -60,8 +60,8 @@ export default Home
 const Footer = () => {
   return (
     <div>
-      <h1 className='text-xl'>Do you have a project idea in mind? Let me know,</h1>
-      <OutlineText onClick={() => { window.location.href = "mailto:someone@example.com" }} classNames='text-xl cursor-pointer' text='Email me!' />
+      <h1 className=' 4xl:text-h2-4xl 3xl:text-h2-3xl 2xl:text-h2-2xl xl:text-h2-xl lg:text-h2-lg md:text-h2-md text-h2-sm !font-extrabold '>Do you have a project idea in mind? Let me know,</h1>
+      <OutlineText onClick={() => { window.location.href = "mailto:someone@example.com" }} classNames=' 4xl:text-h2-4xl 3xl:text-h2-3xl 2xl:text-h2-2xl xl:text-h2-xl lg:text-h2-lg md:text-h2-md text-h2-sm !font-extrabold cursor-pointer' text='Email me!' />
       <div className='flex gap-5 px-2 mt-5'>
         <TrackingText handleClick={() => { window.location.href = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto" }} text="Twitter" className='text-lg text-gray' />
         <TrackingText handleClick={() => { window.location.href = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto" }} text="Github" className='text-lg text-gray' />
