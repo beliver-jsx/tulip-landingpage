@@ -1,10 +1,10 @@
 interface props {
     lines: string[],
-    classNames?: string
+    classNames?: string,
+    delay?: number
 }
 import { motion } from "framer-motion";
-import { h2 } from "../../../responsive.config";
-const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
+const TextRevealAnimation: React.FC<props> = ({ lines, classNames, delay }) => {
     return (
         <motion.div
             className={classNames}>
@@ -17,7 +17,7 @@ const TextRevealAnimation: React.FC<props> = ({ lines, classNames }) => {
                             animate={{
                                 y: 0, opacity: 1,
                                 transition: {
-                                    delay: index == 0 ? 0 : (index + 0.2) * 0.1,
+                                    delay: index == 0 ? (delay ? delay : 0) : (index + 0.2) * 0.1,
                                     duration: 2,
                                     ease: [0.87, 0, 0.13, 1]
                                 }

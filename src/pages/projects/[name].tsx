@@ -13,18 +13,18 @@ const ProjectName: NextPage<project> = ({ name, index, story, image, gallary, ov
             </section>
 
             <section className='mt-[20rem] max-w-3xl'>
-                <h3 className='text-elg mb-10'>Overview</h3>
-                <p className='text-lg '>{overview}</p>
+                <h3 className='4xl:text-h4-4xl 3xl:text-h4-3xl 2xl:text-h4-2xl xl:text-h4-xl lg:text-h4-lg md:text-h4-md text-h4-sm mb-10'>Overview</h3>
+                <p className='text-lg'>{overview}</p>
             </section>
 
             <section className='ml-auto mt-[10rem] max-w-3xl'>
-                <h3 className='text-elg mb-10'>Story</h3>
-                <p className='text-lg '>{story}</p>
+                <h3 className='4xl:text-h4-4xl 3xl:text-h4-3xl 2xl:text-h4-2xl xl:text-h4-xl lg:text-h4-lg md:text-h4-md text-h4-sm mb-10'>Story</h3>
+                <p className='text-lg'>{story}</p>
             </section>
 
             <section className='mt-[10rem] max-w-3xl'>
-                <h3 className='text-elg mb-10'>Development</h3>
-                <p className='text-lg '>{development}</p>
+                <h3 className='4xl:text-h4-4xl 3xl:text-h4-3xl 2xl:text-h4-2xl xl:text-h4-xl lg:text-h4-lg md:text-h4-md text-h4-sm mb-10'>Development</h3>
+                <p className='text-lg'>{development}</p>
             </section>
 
             <div className="w-full h-[1px] my-[15rem]  dark:bg-white bg-black "></div>

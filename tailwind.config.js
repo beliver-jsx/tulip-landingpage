@@ -167,6 +167,49 @@ module.exports = {
         }],
 
 
+        // h4 
+        'h4-4xl': ['4.125rem', {
+          lineHeight: '6.125rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h4-3xl': ['4.125rem', {
+          lineHeight: '6.125rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h4-2xl': ['4.125rem', {
+          lineHeight: '6.125rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h4-xl': ['3rem', {
+          lineHeight: '5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h4-lg': ['3rem', {
+          lineHeight: '5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h4-md': ['3rem', {
+          lineHeight: '2.5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
+        'h4-sm': ['2.625rem', {
+          lineHeight: '4.625rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '800',
+        }],
+
 
 
 
