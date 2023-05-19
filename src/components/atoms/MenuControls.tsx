@@ -6,16 +6,19 @@ import { hover_tracking_and_bold } from '@/animation'
 const DynamicToggler = dynamic(() => import('../ThemeToggle'),
     { ssr: false })
 
+import { useTheme } from 'next-themes'
 
 const MenuControls = ({ handleDefault, handleFocused, isMenuVisible, setMenuVisible }: any) => {
+    const { theme } = useTheme()
     return (
         (
             <div className="w-full lg:h-full fixed lg:z-0 z-[999999]  top-0 left-0 p-[24px] 4xl:p-[50px] 3xl:p-[50px] 2xl:p-[50px] xl:p-[25px] grid grid-cols-2">
                 <div>
                     <Link href={'/'}>
                         <motion.h5
+                            style={theme === 'light' ? { color: 'black' } : { color: 'white' }}
                             onHoverEnd={handleDefault}
-                            className="cursor-pointer text-md text-black dark:text-white"
+                            className="cursor-pointer text-md"
                             onHoverStart={handleFocused}
                             whileHover={hover_tracking_and_bold}>Richard William's <br /> Portfolio</motion.h5>
                     </Link>
