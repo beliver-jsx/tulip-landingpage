@@ -118,8 +118,7 @@ const ProjectListItem: React.FC<Props> = ({ index, item }) => {
                         text-h3-sm
 
 
-                        
-            
+
                         !font-extrabold capitalize relative`}>
 
                         <motion.span animate={simpleTextControl} className="tracking-wider">{item.name}</motion.span>
@@ -132,7 +131,7 @@ const ProjectListItem: React.FC<Props> = ({ index, item }) => {
                 <AnimatePresence>
                     {visible && (
                         <motion.div
-                            className='-z-10'
+                            className='-z-10 lg:block hidden'
                             exit={{ opacity: 0 }}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
