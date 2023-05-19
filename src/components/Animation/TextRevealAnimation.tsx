@@ -5,6 +5,9 @@ interface props {
 }
 import { motion } from "framer-motion";
 const TextRevealAnimation: React.FC<props> = ({ lines, classNames, delay }) => {
+
+
+
     return (
         <motion.div
             className={classNames}>
