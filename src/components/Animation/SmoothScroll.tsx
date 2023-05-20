@@ -3,7 +3,7 @@ import ResizeObserver from "resize-observer-polyfill"
 import useMobileDetect from "@/hooks/useMobileDetect"
 import { useTransform, useSpring, motion, useScroll } from "framer-motion"
 import React, { useRef, useState, useCallback, useLayoutEffect } from "react"
-
+import HorizontalLine from "../atoms/HorizontalLines"
 const SmoothScroll = ({ children }: any) => {
     // scroll container
     const scrollRef = useRef<any>(null)
@@ -37,6 +37,7 @@ const SmoothScroll = ({ children }: any) => {
 
     return (
         <>
+            <HorizontalLine />
             <motion.div
                 ref={scrollRef}
                 style={{ y: isMobile ? transform : spring }}
@@ -54,9 +55,7 @@ const SmoothScroll = ({ children }: any) => {
                           xl:left-[176px]
                            lg:left-[176px]
                             md:left-[48px] 
-                            left-[24px] top-0 h-max
-
-                            ">
+                            left-[24px] top-0 h-max">
                 {!isMobile ? <Skew>{children}</Skew> : children}
             </motion.div>
             <div style={{ height: pageHeight }} />

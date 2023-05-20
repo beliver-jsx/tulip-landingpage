@@ -139,7 +139,7 @@ const Layout = ({ children }: any) => {
                     </motion.div>
                 ) : (
                     <div className="w-full h-full absolute top-0 left-0">
-                        <HorizontalLine />
+                        {/* <HorizontalLine /> */}
                         <MenuControls {...{
                             handleDefault,
                             handleFocused,
